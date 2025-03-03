@@ -1,3 +1,4 @@
+<!-- frontend/src/components/Header.vue -->
 <template>
   <header class="header">
     <h1>Hydrogen Infrastructure Dashboard</h1>

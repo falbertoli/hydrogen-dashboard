@@ -1,3 +1,4 @@
+<!-- frontend/src/components/Sidebar.vue -->
 <template>
   <div class="sidebar">
     <h2>Dashboard</h2>

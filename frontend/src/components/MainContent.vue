@@ -1,3 +1,4 @@
+<!-- frontend/src/components/MainContent.vue -->
 <template>
   <div class="main-content">
     <h2>Hydrogen Dashboard</h2>

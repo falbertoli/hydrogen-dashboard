@@ -1,14 +1,19 @@
+// frontend/src/composables/useHydrogenCalculator.js
 import axios from "axios";
 
 const API_BASE_URL = "http://127.0.0.1:5000";
 
-export async function submitHydrogenDemand(fleetPercentage, selectedVehicles, selectedTimePeriod) {
+export async function submitHydrogenDemand(
+  fleetPercentage,
+  selectedVehicles,
+  selectedTimePeriod
+) {
   try {
     const response = await axios.post(`${API_BASE_URL}/api/calculate`, {
       calculationMode: "demand",
       fleetPercentage,
       selectedVehicles,
-      selectedTimePeriod
+      selectedTimePeriod,
     });
     return response.data;
   } catch (error) {
@@ -21,7 +26,7 @@ export async function submitStorage(storageArea) {
   try {
     const response = await axios.post(`${API_BASE_URL}/api/calculate`, {
       calculationMode: "storage",
-      storageArea
+      storageArea,
     });
     return response.data;
   } catch (error) {

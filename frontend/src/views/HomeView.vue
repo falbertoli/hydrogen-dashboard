@@ -1,3 +1,4 @@
+<!-- frontend/src/views/HomeView.vue -->
 <template>
   <p>Home</p>
 </template>

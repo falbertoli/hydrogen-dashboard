@@ -1,3 +1,4 @@
+<!-- frontend/src/views/HydrogenDemandView.vue -->
 <template>
   <div>
     <h2>Hydrogen Demand</h2>

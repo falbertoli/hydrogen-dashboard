@@ -1,3 +1,4 @@
+<!-- frontend/src/components/HydrogenDemandForm.vue -->
 <template>
   <div class="form-container">
     <h2>Hydrogen Demand Calculator</h2>

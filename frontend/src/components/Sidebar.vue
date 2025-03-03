@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <h2>Hydrogen Dashboard</h2>
+    <h2>Dashboard</h2>
     <ul>
       <li><router-link to="/">Overview</router-link></li>
       <li><router-link to="/hydrogen-demand">Hydrogen Demand</router-link></li>
@@ -17,6 +17,10 @@
   color: white;
   padding: 20px;
   height: 100vh;
+}
+
+h2 {
+  color: white;
 }
 
 ul {

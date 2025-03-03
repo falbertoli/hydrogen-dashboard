@@ -35,8 +35,10 @@
       <p>Estimated Hydrogen Demand: {{ results.estimatedH2Demand.toFixed(2) }} ft³</p>
       <p>Required Storage Area: {{ results.requiredStorageArea.toFixed(2) }} ft²</p>
       <p v-if="results.storageLocationFound">✔️ Suitable storage location found.</p>
-      <p v-else>❌ No suitable storage location available.</p>
-      <HydrogenMap :requiredStorageArea="results.requiredStorageArea" />
+      <!-- <HydrogenMap :requiredStorageArea="results.requiredStorageArea" /> -->
+      <HydrogenMap :compliantZones="results?.compliantZones" :requiredStorageArea="results?.requiredStorageArea"
+        v-if="results?.compliantZones && results?.compliantZones.length > 0" />
+      <p v-else-if="results">❌ No suitable storage location available.</p>
     </div>
   </div>
 </template>
@@ -70,30 +72,41 @@ const removeVehicle = (index) => {
   selectedVehicles.value.splice(index, 1);
 };
 
+
 // Submit form
 const submitForm = async () => {
-  results.value = await submitHydrogenDemand(
-    fleetPercentage.value,
-    selectedVehicles.value,
-    selectedTimePeriod.value
-  );
+  // results.value = null; // Reset results before making the API call
+  try {
+    results.value = await submitHydrogenDemand(
+      fleetPercentage.value,
+      selectedVehicles.value,
+      selectedTimePeriod.value
+    );
+  } catch (error) {
+    console.error("Error submitting form:", error);
+    alert("An error occurred while calculating the hydrogen demand.");
+    results.value = {
+      estimatedH2Demand: 0,
+      requiredStorageArea: 0,
+      storageLocationFound: false,
+      compliantZones: [],
+    };
+  }
 };
 </script>
 
 <style>
-/* .slider {
-  width: 100%;
-  accent-color: #007bff;
-  margin-top: 0;
-} */
-
 .slider {
   width: 100%;
-  max-width: 475px; /* Match button width */
+  max-width: 475px;
+  /* Match button width */
   display: block;
-  margin: 0 auto; /* Center it */
-  appearance: none; /* Remove default browser styles */
-  height: 8px; /* Adjust thickness */
+  margin: 0 auto;
+  /* Center it */
+  appearance: none;
+  /* Remove default browser styles */
+  height: 8px;
+  /* Adjust thickness */
   border-radius: 5px;
   background: linear-gradient(to right, #444, #222);
   outline: none;
@@ -108,10 +121,12 @@ const submitForm = async () => {
 /* Webkit Browsers (Chrome, Safari) */
 .slider::-webkit-slider-thumb {
   appearance: none;
-  width: 22px; /* Thumb size */
+  width: 22px;
+  /* Thumb size */
   height: 22px;
   background: #fff;
-  border: 3px solid #007bff; /* Outline matching theme */
+  border: 3px solid #007bff;
+  /* Outline matching theme */
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -152,13 +167,15 @@ const submitForm = async () => {
 .vehicle-row select,
 .vehicle-row input {
   flex: 1;
-  height: 40px; /* Ensure uniform height */
+  height: 40px;
+  /* Ensure uniform height */
   padding: 8px;
   margin-top: 17.5px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  box-sizing: border-box; /* Prevents padding from increasing height */
+  box-sizing: border-box;
+  /* Prevents padding from increasing height */
 }
 
 .vehicle-row select {
@@ -168,6 +185,7 @@ const submitForm = async () => {
 .vehicle-row input {
   flex: 1;
 }
+
 .vehicle-row input {
   text-align: center;
 }
@@ -175,7 +193,7 @@ const submitForm = async () => {
 .remove-btn {
   width: 40px;
   height: 40px;
-  margin-top: 0;
+  margin-top: 11px;
   background: #b0b0b0;
   border: none;
   border-radius: 5px;
@@ -195,8 +213,10 @@ const submitForm = async () => {
 
 .time-selection {
   display: flex;
-  gap: 15px; /* Space between dropdowns */
-  justify-content: center; /* Centers them */
+  gap: 15px;
+  /* Space between dropdowns */
+  justify-content: center;
+  /* Centers them */
   align-items: center;
   width: 100%;
 }
@@ -210,12 +230,16 @@ const submitForm = async () => {
 }
 
 #selectedTimePeriod {
-  flex: 2; /* Make this take more space */
-  max-width: 300px; /* Adjust max width as needed */
+  flex: 2;
+  /* Make this take more space */
+  max-width: 300px;
+  /* Adjust max width as needed */
 }
 
 #selectedYear {
-  flex: 1; /* Make this smaller */
-  max-width: 120px; /* Adjust max width as needed */
+  flex: 1;
+  /* Make this smaller */
+  max-width: 120px;
+  /* Adjust max width as needed */
 }
 </style>

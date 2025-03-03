@@ -16,7 +16,11 @@ SAFETY_DISTANCE = 1000  # Example: Min distance required from buildings
 
 def compute_h2_demand(fleet_percentage, ground_vehicles, time_period):
     """Compute hydrogen demand and required storage"""
-    fleet_percentage = int(fleet_percentage)  # 🔹 Ensure it's an integer
+    try:
+        fleet_percentage = int(fleet_percentage)
+    except ValueError:
+        fleet_percentage = 0  # Default if conversion fails
+
     time_multiplier = int(time_period.split()[0])  # Convert "7 days" → 7
 
     demand_factor = 10  # Example factor per fleet percentage
@@ -30,8 +34,8 @@ def compute_h2_demand(fleet_percentage, ground_vehicles, time_period):
 
 def get_compliant_areas(required_storage_area):
     airport_areas = [
-        {"name": "Zone 1", "space": 60000, "coordinates": [[33.6405, -84.4265], [33.6405, -84.4295], [33.6425, -84.4295], [33.6425, -84.4265]]},
-        {"name": "Zone 2", "space": 30000, "coordinates": [[33.6410, -84.4280], [33.6410, -84.4310], [33.6430, -84.4310], [33.6430, -84.4280]]},
+        {"name": "Zone 1", "space": 500, "coordinates": [[33.6405, -84.4265], [33.6405, -84.4295], [33.6425, -84.4295], [33.6425, -84.4265]]}, # name: name of the zone, space: total space, coordinates: list of GPS coordinates represnting the boundaries of the zone
+        {"name": "Zone 2", "space": 1600, "coordinates": [[33.6410, -84.4280], [33.6410, -84.4310], [33.6430, -84.4310], [33.6430, -84.4280]]},
     ]
 
     compliant_zones = [area for area in airport_areas if area['space'] >= required_storage_area]
@@ -68,7 +72,7 @@ def calculate():
             response = {
                 "estimatedH2Demand": h2_demand,
                 "requiredStorageArea": storage_needed,
-                "storageLocationFound": storage_needed,  # Example rule
+                "storageLocationFound": len(compliant_zones) > 0,
                 "compliantZones": compliant_zones
             }
 

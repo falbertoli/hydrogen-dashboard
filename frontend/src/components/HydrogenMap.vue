@@ -1,69 +1,68 @@
 <template>
-  <div>
-    <h2>Atlanta Airport - Hydrogen Storage Areas</h2>
-    <l-map :zoom="zoom" :center="center" style="height: 600px; width: 100%">
-      <l-tile-layer :url="tileLayer" />
-      <!-- Show compliant zones based on backend calculation -->
-      <l-polygon
-        v-for="(zone, index) in compliantZones"
-        :key="index"
-        :lat-lngs="zone.coordinates"
-        color="green"
-        fill-opacity="0.3"
-      >
-        <l-popup>{{ zone.name }} - Free Space: {{ zone.space }} ft²</l-popup>
-      </l-polygon>
-    </l-map>
-  </div>
+  <div id="map" style="height: 400px;"></div>
 </template>
 
 <script>
-import "leaflet/dist/leaflet.css"
-import { LMap, LTileLayer, LPolygon } from '@vue-leaflet/vue-leaflet';
+import { onMounted, ref, watch, onBeforeUnmount } from 'vue';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
 
 export default {
-  props: ['requiredStorageArea'],
-  components: {
-    LMap,
-    LTileLayer
-  },
-  data() {
-    return {
-      zoom: 15,
-      center: [33.6407, -84.4277], // Atlanta Airport coordinates
-      tileLayer: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      compliantZones: [] // Will be populated with backend results
-    };
-  },
-  methods: {
-    async fetchCompliantZones() {
-      try {
-        const response = await fetch("http://127.0.0.1:5000/api/calculate", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fleetPercentage: 50, // Example values
-            selectedVehicles: [{ type: 'Pickup Truck', count: 5 }],
-            selectedTimePeriod: "7 days"
-          }),
-        });
-        const data = await response.json();
-        this.compliantZones = data.compliantZones;
-      } catch (error) {
-        console.error("Error fetching zones:", error);
-      }
+  props: {
+    compliantZones: {
+      type: Array,
+      required: true,
+    },
+    requiredStorageArea: {
+      type: Number,
+      required: false
     }
   },
-  mounted() {
-    this.fetchCompliantZones();
-  }
+  setup(props) {
+    const map = ref(null);
+
+    onMounted(() => {
+      // Atlanta Airport Coordinates
+      const atlantaAirportLat = 33.6407;   // Latitude of Atlanta Airport
+      const atlantaAirportLng = -84.4277;  // Longitude of Atlanta Airport
+      const zoomLevel = 13;             // Adjust zoom level as needed
+
+      map.value = L.map('map').setView([atlantaAirportLat, atlantaAirportLng], zoomLevel);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map.value);
+
+      watch(() => props.compliantZones, (newCompliantZones) => {
+        if (map.value) {
+          map.value.eachLayer((layer) => {
+            if (layer instanceof L.Polygon) {
+              map.value.removeLayer(layer);
+            }
+          });
+        }
+
+        newCompliantZones.forEach(zone => {
+          if (zone.coordinates && Array.isArray(zone.coordinates)) {
+            const polygon = L.polygon(zone.coordinates, {
+              color: 'blue',
+              fillColor: 'lightblue',
+              fillOpacity: 0.5
+            }).addTo(map.value).bindPopup(zone.name);
+          } else {
+            console.warn("Invalid coordinates data:", zone);
+          }
+        });
+      }, { immediate: true });
+
+      onBeforeUnmount(() => {
+        if (map.value) {
+          map.value.remove();
+          map.value = null;
+        }
+      });
+    });
+
+    return { map };
+  },
 };
 </script>
-
-<style scoped>
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #0056b3;
-}
-</style>

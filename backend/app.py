@@ -1,291 +1,106 @@
 # backend/app.py
 """
-Hydrogen Dashboard Backend API
-
-This Flask application provides API endpoints for:
-1. Hydrogen demand calculations
-2. Storage capacity calculations
-3. Financial analysis for hydrogen fleet transition
-
-Dependencies:
-- Flask: Web framework
-- Flask-CORS: Cross-origin resource sharing
-- Pandas: Data processing for financial calculations
-- NumPy: Numerical calculations
-- Pydantic: Input validation
+This Flask application provides API endpoints for hydrogen demand, economic impact, and storage cost calculations.
+It interacts with SQLite databases to retrieve and process data.
 """
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-import pandas as pd
-import numpy as np
-from pydantic import BaseModel, Field, ValidationError, ConfigDict
-from typing_extensions import Annotated  # Use typing for Python >= 3.9
+from hydrogen_demand_tool import h2_demand_ac, h2_demand_gse, growth_rate_computation
+from economic_impact import hydrogen_uti_rev
+from storage_cost import calculate_h2_storage_cost
 import os
 
 app = Flask(__name__)
-# Configure CORS for development (update origins for production)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+# CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
-# Constants (consider moving to config.py for production)
-TANK_WIDTH = 10.1667  # ft
-TANK_LENGTH = 56.5  # ft
-WATER_CAP = 18014 / 7.48052  # gal to ft³
-TANK_ULLAGE = 0.05  # 5% volume loss due to ullage
-EVAPORATION = 0.9925  # 99.25% LH2 retention per day
-H2_DENS = 4.43  # lbs/ft³ (liquid hydrogen density)
-SAFETY_DISTANCE = 1000  # ft, minimum distance required from buildings
-REVENUE_PER_FLIGHT = 32_599_650 / 500_000  # USD, example revenue per flight
-
-# Load CSV data at startup for financial calculations
-try:
-    csv_path = os.path.join(os.path.dirname(__file__), 'data', 'T_SCHEDULE_T1.csv')
-    uti_data = pd.read_csv(csv_path)
-    delta_data = uti_data[(uti_data['UNIQUE_CARRIER'] == 'DL') & (uti_data['REGION'] == 'D')]
-except FileNotFoundError:
-    raise RuntimeError("CSV file not found. Please ensure 'data/T_SCHEDULE_T1.csv' exists.")
-
-# Input validation models using Pydantic
-class DemandInput(BaseModel):
-    fleetPercentage: Annotated[int, Field(ge=0, le=100)]  # Percentage of fleet using H2 (0-100)
-    selectedVehicles: list[dict]  # List of vehicles with type and count
-    selectedTimePeriod: str  # Time period (e.g., "7 days")
-
-class StorageInput(BaseModel):
-    storageArea: Annotated[int, Field(ge=0)]  # Storage area in sq ft
-
-class FinancialInput(BaseModel):
-    # Internal snake_case names with camelCase aliases for frontend compatibility
-    fleet_percentage: Annotated[float, Field(ge=0, le=1, alias="fleetPercentage")]  # Fraction of flights changed to H2 (0-1)
-    total_flights: Annotated[int, Field(ge=0, alias="totalFlights")]  # Total flights per year
-    atlanta_fraction: Annotated[float, Field(ge=0, le=1, alias="atlantaFraction")]  # Fraction of flights from Atlanta
-    hydrogen_demand_gal: Annotated[float, Field(ge=0, alias="hydrogenDemand")]  # Hydrogen demand (gallons)
-    turnaround_time_min: Annotated[int, Field(ge=0, alias="turnaroundTime")]  # Extra turnaround time (minutes)
-    tax_credits_per_gal: Annotated[float, Field(ge=0, alias="taxCredits")]  # Tax credit ($/gal)
-
-    model_config = ConfigDict(
-        populate_by_name=True,  # Allow population by alias (camelCase)
-        from_attributes=True
-    )
-
-def compute_h2_demand(fleet_percentage: int, ground_vehicles: list[dict], time_period: str) -> tuple[float, float]:
+@app.route('/h2_demand_ac', methods=['POST'])
+def h2_demand_ac_endpoint():
     """
-    Compute hydrogen demand and required storage volume.
-
-    Args:
-        fleet_percentage (int): Percentage of fleet using hydrogen (0-100).
-        ground_vehicles (list[dict]): List of hydrogen-powered ground vehicles.
-        time_period (str): Time period for demand estimation (e.g., "7 days").
-
-    Returns:
-        tuple: (estimated_h2_demand [lbs], storage_needed [ft³])
+    API endpoint to calculate hydrogen demand for aircraft routes.
+    Expects JSON data with 'database_name', 'slider_perc', and 'end_year'.
     """
-    try:
-        fleet_percentage = int(fleet_percentage)
-    except ValueError:
-        fleet_percentage = 0
+    data = request.json
+    database_name = data['database_name']
+    slider_perc = data['slider_perc']
+    end_year = data['end_year']
+    result = h2_demand_ac(database_name, slider_perc, end_year)
+    return jsonify(result)
 
-    if not time_period or not time_period.split()[0].isdigit():
-        raise ValueError("Invalid time period format. Expected 'X days'.")
-
-    time_multiplier = int(time_period.split()[0])
-    demand_factor = 10  # Example factor per fleet percentage
-    vehicle_factor = 5  # Example H2 consumption per vehicle
-
-    estimated_h2_demand = (fleet_percentage * demand_factor) + (len(ground_vehicles) * vehicle_factor)
-    estimated_h2_demand *= time_multiplier
-    storage_needed = estimated_h2_demand / H2_DENS
-    return estimated_h2_demand, storage_needed
-
-def get_compliant_areas(required_storage_area: float) -> list[dict]:
+@app.route('/h2_demand_gse', methods=['POST'])
+def h2_demand_gse_endpoint():
     """
-    Find airport zones that can accommodate the required storage area.
-
-    Args:
-        required_storage_area (float): Required storage area in sq ft.
-
-    Returns:
-        list[dict]: List of compliant zones with name, space, and coordinates.
+    API endpoint to calculate hydrogen demand for ground support equipment.
+    Expects JSON data with 'database_name', 'gse', and 'end_year'.
     """
-    airport_areas = [
-        {
-            "name": "Zone 1",
-            "space": 500,
-            "coordinates": [[33.6405, -84.4265], [33.6405, -84.4295], [33.6425, -84.4295], [33.6425, -84.4265]]
-        },
-        {
-            "name": "Zone 2",
-            "space": 1600,
-            "coordinates": [[33.6410, -84.4280], [33.6410, -84.4310], [33.6430, -84.4310], [33.6430, -84.4280]]
-        },
-    ]
-    compliant_zones = [area for area in airport_areas if area['space'] >= required_storage_area]
-    return compliant_zones
+    data = request.json
+    database_name = data['database_name']
+    gse = [vehicle['type'] for vehicle in data['gse']]
+    end_year = data['end_year']
+    result = h2_demand_gse(database_name, gse, end_year)
+    return jsonify(result)
 
-def compute_max_storage(storage_area: int) -> float:
+@app.route('/h2_demand', methods=['POST'])
+def h2_demand_endpoint():
     """
-    Compute maximum hydrogen storage for a given area.
-
-    Args:
-        storage_area (int): Available storage area in sq ft.
-
-    Returns:
-        float: Maximum hydrogen storage in ft³.
+    API endpoint to calculate hydrogen demand for both aircraft and ground support equipment.
+    Expects JSON data with 'slider_perc', 'gse', and 'end_year'.
     """
-    tank_h2_storage = WATER_CAP * (1 - TANK_ULLAGE) * EVAPORATION  # Usable H₂ per tank
-    tank_area = TANK_WIDTH * TANK_LENGTH  # Area occupied by one tank
-    num_tanks = storage_area / tank_area  # Max tanks in available area
-    total_h2_stored = num_tanks * tank_h2_storage  # Total hydrogen stored
-    return total_h2_stored
-
-def compute_financial_analysis(data: FinancialInput) -> dict:
-    """
-    Compute financial metrics for hydrogen fleet transition.
-
-    Args:
-        data (FinancialInput): Validated input data.
-
-    Returns:
-        dict: Financial metrics including utilization, revenue drop, tax credits, etc.
-    """
-    A = data.fleet_percentage  # Fraction of flights changed to H2
-    B = data.total_flights  # Total flights per year
-    C = data.atlanta_fraction  # Fraction of flights from Atlanta
-    D = data.hydrogen_demand_gal  # Hydrogen demand (gallons)
-    E = data.turnaround_time_min  # Extra turnaround time (minutes)
-    tax_credits = data.tax_credits_per_gal  # Tax credit ($/gal)
-
-    # Baseline Jet-A utilization for fraction A and from ATL only
-    baseline_jetA_util = A * C * delta_data['REV_ACRFT_HRS_AIRBORNE_610'].sum()
-
-    # Calculate H2 utilization
-    utilization_h2 = baseline_jetA_util - (A * B * (E / 60.0))
-
-    # Baseline revenue for fraction A
-    baseline_revenue = A * C * REVENUE_PER_FLIGHT / 1_000_000  # Convert to millions USD
-
-    # New revenue from H2 flights
-    new_h2_revenue = A * C * REVENUE_PER_FLIGHT * (utilization_h2 / baseline_jetA_util) / 1_000_000
-
-    # Revenue drop
-    revenue_drop = baseline_revenue - new_h2_revenue
-
-    # Total tax credits
-    total_tax_crd = (D * tax_credits) / 1_000_000
-
-    # Percentage drop in revenue
-    pct_drop = 100 * (revenue_drop / baseline_revenue) if baseline_revenue else 0.0
-
-    return {
-        "baseline_jetA_utilization": float(baseline_jetA_util),  # hrs/yr
-        "hydrogen_utilization": float(utilization_h2),  # hrs/yr
-        "baseline_revenue": float(baseline_revenue),  # million USD
-        "new_h2_revenue": float(new_h2_revenue),  # million USD
-        "revenue_drop": float(revenue_drop),  # million USD
-        "total_tax_credits": float(total_tax_crd),  # million USD
-        "percent_revenue_drop": float(pct_drop)  # %
+    data = request.json
+    slider_perc = data['slider_perc']
+    gse = [vehicle['type'] for vehicle in data['gse']]
+    end_year = data['end_year']
+    
+    aircraft_demand = h2_demand_ac('aircraft_data.db', slider_perc, end_year)
+    gse_demand = h2_demand_gse('ground_fleet_data.db', gse, end_year)
+    
+    result = {
+        "aircraft_demand": aircraft_demand,
+        "gse_demand": gse_demand,
+        "total_demand": aircraft_demand + gse_demand["total_h2_demand_vol_gse"]
     }
+    return jsonify(result)
 
-@app.route('/api/calculate', methods=['POST'])
-def calculate():
+@app.route('/economic_impact', methods=['POST'])
+def economic_impact_endpoint():
     """
-    API endpoint for calculations.
-
-    Request Body:
-        - calculationMode (str): "demand", "storage", or "financial"
-        - Other fields depend on the calculation mode
-
-    Response:
-        - success (bool): True if successful, False otherwise
-        - data (dict): Calculation results
-        - error (str): Error message if applicable
+    API endpoint to calculate the economic impact of switching to hydrogen fuel.
+    Expects JSON data with 'd', and 'tax_credits'.
     """
-    try:
-        data = request.json
-        if not data:
-            return jsonify({
-                "success": False,
-                "data": None,
-                "error": "Missing request body"
-            }), 400
+    data = request.json
+    d = data['d']
+    tax_credits = data['tax_credits']
+    result = hydrogen_uti_rev(d, tax_credits)
+    return jsonify(result)
 
-        calc_mode = data.get("calculationMode", "demand")
+@app.route('/storage_cost', methods=['POST'])
+def storage_cost_endpoint():
+    """
+    API endpoint to calculate the storage cost for hydrogen.
+    Expects JSON data with 'total_h2_volume_gal', 'number_of_tanks', 'tank_diameter_ft', 
+    'tank_length_ft', 'cost_per_sqft_construction', and 'cost_per_cuft_insulation'.
+    """
+    data = request.json
+    total_h2_volume_gal = data['total_h2_volume_gal']
+    number_of_tanks = data['number_of_tanks']
+    tank_diameter_ft = data['tank_diameter_ft']
+    tank_length_ft = data['tank_length_ft']
+    cost_per_sqft_construction = data['cost_per_sqft_construction']
+    cost_per_cuft_insulation = data['cost_per_cuft_insulation']
+    result = calculate_h2_storage_cost(
+        total_h2_volume_gal,
+        number_of_tanks,
+        tank_diameter_ft,
+        tank_length_ft,
+        cost_per_sqft_construction,
+        cost_per_cuft_insulation
+    )
+    return jsonify(result)
 
-        if calc_mode == "demand":
-            try:
-                demand_input = DemandInput(**data)
-                h2_demand, storage_needed = compute_h2_demand(
-                    demand_input.fleetPercentage,
-                    demand_input.selectedVehicles,
-                    demand_input.selectedTimePeriod
-                )
-                compliant_zones = get_compliant_areas(storage_needed)
-                response = {
-                    "success": True,
-                    "data": {
-                        "estimatedH2Demand": float(h2_demand),  # lbs
-                        "requiredStorageArea": float(storage_needed),  # ft²
-                        "storageLocationFound": len(compliant_zones) > 0,
-                        "compliantZones": compliant_zones
-                    },
-                    "error": None
-                }
-            except ValidationError as e:
-                response = {
-                    "success": False,
-                    "data": None,
-                    "error": f"Invalid demand input: {e}"
-                }
-
-        elif calc_mode == "storage":
-            try:
-                storage_input = StorageInput(**data)
-                max_h2_stored = compute_max_storage(storage_input.storageArea)
-                response = {
-                    "success": True,
-                    "data": {
-                        "maxHydrogenStored": float(max_h2_stored)  # ft³
-                    },
-                    "error": None
-                }
-            except ValidationError as e:
-                response = {
-                    "success": False,
-                    "data": None,
-                    "error": f"Invalid storage input: {e}"
-                }
-
-        elif calc_mode == "financial":
-            try:
-                financial_input = FinancialInput(**data)
-                financial_results = compute_financial_analysis(financial_input)
-                response = {
-                    "success": True,
-                    "data": financial_results,
-                    "error": None
-                }
-            except ValidationError as e:
-                response = {
-                    "success": False,
-                    "data": None,
-                    "error": f"Invalid financial input: {e}"
-                }
-
-        else:
-            response = {
-                "success": False,
-                "data": None,
-                "error": "Invalid calculation mode"
-            }
-
-        return jsonify(response)
-
-    except Exception as e:
-        return jsonify({
-            "success": False,
-            "data": None,
-            "error": f"Internal server error: {str(e)}"
-        }), 500
+@app.route('/data/<path:filename>', methods=['GET'])
+def download_file(filename):
+    return send_from_directory(os.path.join(app.root_path, 'data'), filename)
 
 if __name__ == '__main__':
     app.run(debug=True)

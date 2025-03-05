@@ -1,11 +1,17 @@
 <!-- frontend/src/views/HydrogenDemandView.vue -->
 <template>
   <div>
-    <h2>Hydrogen Demand</h2>
+    <h1>Hydrogen Demand</h1>
     <HydrogenDemandForm />
   </div>
 </template>
 
-<script setup>
-import HydrogenDemandForm from '../components/HydrogenDemandForm.vue';
+<script>
+import HydrogenDemandForm from "../components/HydrogenDemandForm.vue";
+
+export default {
+  components: {
+    HydrogenDemandForm,
+  },
+};
 </script>

@@ -1,3 +1,4 @@
+<!-- frontend/src/components/StorageForm.vue -->
 <template>
   <div class="form-container">
     <h2>Storage Capacity Calculator</h2>
@@ -36,10 +37,14 @@ const submitForm = async () => {
 <style>
 .storage-inputs {
   display: flex;
-  flex-direction: column; /* Ensures label and input stay in a vertical column */
-  align-items: flex-start; /* Aligns items to the left */
-  gap: 5px; /* Adds a small gap between label and input */
-  margin-bottom: 15px; /* Adds space before the button */
+  flex-direction: column;
+  /* Ensures label and input stay in a vertical column */
+  align-items: flex-start;
+  /* Aligns items to the left */
+  gap: 5px;
+  /* Adds a small gap between label and input */
+  margin-bottom: 15px;
+  /* Adds space before the button */
 }
 
 .storage-inputs label {
@@ -48,8 +53,10 @@ const submitForm = async () => {
 }
 
 .storage-inputs input {
-  width: 100%; /* Makes sure the input takes full width */
-  max-width: 250px; /* Adjust the max width */
+  width: 100%;
+  /* Makes sure the input takes full width */
+  max-width: 250px;
+  /* Adjust the max width */
   padding: 8px;
   font-size: 16px;
   border: 1px solid #ccc;

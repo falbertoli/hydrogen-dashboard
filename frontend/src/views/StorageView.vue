@@ -1,3 +1,4 @@
+<!-- frontend/src/views/StorageView.vue -->
 <template>
   <div>
     <h2>Storage</h2>

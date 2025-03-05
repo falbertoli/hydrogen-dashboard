@@ -1,11 +1,13 @@
+/* frontend/src/assets/styles.css */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   background: #f8f9fa;
   margin: 0;
   padding: 0;
 }
 
-h2, h3 {
+h2,
+h3 {
   text-align: center;
   color: #333;
 }
@@ -27,7 +29,8 @@ label {
   color: #555;
 }
 
-input, select {
+input,
+select {
   width: 100%;
   padding: 12px;
   margin: 10px 0 20px;
@@ -37,7 +40,8 @@ input, select {
   transition: border 0.3s;
 }
 
-input:focus, select:focus {
+input:focus,
+select:focus {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);

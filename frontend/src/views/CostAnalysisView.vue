@@ -1,3 +1,4 @@
+<!-- frontend/src/views/CostAnalysisView.vue -->
 <template>
   <div>
     <h2>Cost Analysis</h2>

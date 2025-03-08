@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref } from "vue";
-import { submitStorage } from "../composables/useHydrogenCalculator";
+import { submitStorage } from "@/api";
 
 const storageArea = ref(0);
 const results = ref(null);

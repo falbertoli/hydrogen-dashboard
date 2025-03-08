@@ -11,8 +11,11 @@
       <ul>
         <li><router-link to="/">Overview</router-link></li>
         <li><router-link to="/hydrogen-demand">Hydrogen Demand</router-link></li>
-        <li><router-link to="/storage">Storage</router-link></li>
         <li><router-link to="/cost-analysis">Cost Analysis</router-link></li>
+        <li><router-link to="/storage">Storage Cost</router-link></li>
+        <li><router-link to="/sustainability">Sustainability Analysis</router-link></li>
+        <li><router-link to="/regulations">Regulations</router-link></li>
+
       </ul>
     </div>
   </div>

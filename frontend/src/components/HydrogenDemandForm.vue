@@ -2,78 +2,97 @@
 <template>
   <div class="form-container">
     <h2>Hydrogen Demand Calculator</h2>
-
     <form @submit.prevent="submitForm">
-      <div class="form-group">
-        <label>Percentage of Fleet Using Hydrogen: {{ fleetPercentage }}%</label>
-        <input type="range" v-model="fleetPercentage" min="0" max="100" step="1" class="slider" />
-      </div>
+      <fieldset class="form-group" id="fleetPercentageFieldset">
+        <legend>Percentage of Fleet Using Hydrogen:</legend>
+        <label for="fleetPercentage">{{ fleetPercentage }}%</label>
+        <input id="fleetPercentage" type="range" v-model.number="fleetPercentage" min="0" max="100" step="1"
+          class="slider" />
+      </fieldset>
 
-      <div class="form-group">
-        <label>Ground Vehicles:</label>
-        <div class="vehicle-list">
-          <div v-for="(vehicle, index) in selectedVehicles" :key="index" class="vehicle-row">
-            <select v-model="vehicle.type" class="vehicle-type">
-              <!-- Use all vehicle options, but disable the ones already selected (except current) -->
+      <fieldset class="form-group" id="groundVehiclesFieldset">
+        <legend>Ground Vehicles:</legend>
+        <div id="groundVehicles" class="vehicle-list">
+          <div v-for="(vehicle, index) in selectedVehicles" :key="index" class="vehicle-row"
+            :id="'vehicle-row-' + index">
+            <select v-model="vehicle.type" class="vehicle-type" :id="'vehicle-type-' + index">
               <option v-for="option in vehicleOptions" :key="option" :value="option"
                 :disabled="isOptionDisabled(option, vehicle.type)">
                 {{ option }}
               </option>
             </select>
-            <button type="button" class="remove-btn" @click="removeVehicle(index)">❌</button>
+            <button type="button" class="remove-btn" @click="removeVehicle(index)">
+              ❌
+            </button>
           </div>
         </div>
         <button type="button" class="add-btn" @click="addVehicle" :disabled="!canAddMoreVehicles"
-          :class="{ 'disabled': !canAddMoreVehicles }">
+          :class="{ 'disabled': !canAddMoreVehicles }" id="addVehicleButton">
           + Add Vehicle
         </button>
-        <p v-if="!canAddMoreVehicles" class="no-vehicles-message">
+        <p v-if="!canAddMoreVehicles" class="no-vehicles-message" id="noVehiclesMessage">
           All available vehicles have been added
         </p>
-      </div>
+      </fieldset>
 
-      <div class="form-group">
-        <label>Select End Year:</label>
+      <fieldset class="form-group" id="endYearFieldset">
+        <legend>Select End Year:</legend>
         <div class="time-selection">
           <select v-model="selectedYear" id="selectedYear">
             <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
           </select>
         </div>
-      </div>
+      </fieldset>
 
-      <button type="submit">Calculate</button>
+      <button type="submit" id="calculateButton">Calculate</button>
     </form>
 
-    <div v-if="isLoading" class="loading">Loading...</div>
-    <div v-if="results" class="results">
+    <div v-if="isLoading" class="loading" id="loadingMessage">
+      Loading...
+    </div>
+    <div v-if="results" class="results" id="resultsSection">
       <h3>Results:</h3>
-      <p>Estimated Hydrogen Demand for Aircraft: {{ results?.aircraft_demand?.toFixed(2) || 0 }} ft³</p>
-      <p>Estimated Hydrogen Demand for GSE: {{ results?.gse_demand?.total_h2_demand_vol_gse?.toFixed(2) || 0 }} ft³</p>
-      <p>Total Estimated Hydrogen Demand: {{ results?.total_demand?.toFixed(2) || 0 }} ft³</p>
+      <p>
+        Estimated Hydrogen Demand for Aircraft:
+        {{ results?.aircraft_demand?.toFixed(2) || 0 }} ft³
+      </p>
+      <p>
+        Estimated Hydrogen Demand for GSE:
+        {{ results?.gse_demand?.total_h2_demand_vol_gse?.toFixed(2) || 0 }} ft³
+      </p>
+      <p>
+        Total Estimated Hydrogen Demand:
+        {{ results?.total_demand?.toFixed(2) || 0 }} ft³
+      </p>
 
       <h3>Visualizations:</h3>
       <!-- Bar Chart: Aircraft vs. GSE Demand -->
-      <div v-show="results.aircraft_demand && results.gse_demand?.total_h2_demand_vol_gse" class="chart-section">
+      <div v-show="results.aircraft_demand && results.gse_demand?.total_h2_demand_vol_gse" class="chart-section"
+        id="aircraftGseDemandChart">
         <h4>Aircraft vs. GSE Demand</h4>
         <Chart type="bar" :data="demandComparisonData" :options="demandComparisonOptions" />
       </div>
 
       <!-- Bar Chart: GSE Demand per Vehicle Type -->
-      <div v-show="results.gse_demand?.gse_details?.length" class="chart-section">
+      <div v-show="results.gse_demand?.gse_details?.length" class="chart-section" id="gseDemandPerVehicleChart">
         <h4>GSE Demand per Vehicle Type</h4>
         <Chart type="bar" :data="gseDemandPerVehicleData" :options="gseDemandPerVehicleOptions" />
       </div>
 
       <h3>Ground Support Equipment Details:</h3>
-      <div v-for="(detail, index) in results?.gse_demand?.gse_details" :key="index" class="gse-detail">
+      <div v-for="(detail, index) in results?.gse_demand?.gse_details" :key="index" class="gse-detail"
+        :id="'gse-detail-' + index">
         <p>Type: {{ detail.type }}</p>
-        <p>Fuel Used: {{ detail.fuel_used }}</p>
+        <p>Fuel Replaced: {{ detail.fuel_used }}</p>
         <p>Operating Time (Departure): {{ detail.operating_time_departure }} minutes</p>
         <p>Operating Time (Arrival): {{ detail.operating_time_arrival }} minutes</p>
-        <p>Hydrogen Volume per Vehicle: {{ detail.hydrogen_volume_per_vehicle.toFixed(2) }} ft³</p>
+        <p>
+          Hydrogen Volume per Vehicle:
+          {{ detail.hydrogen_volume_per_vehicle.toFixed(2) }} ft³
+        </p>
       </div>
     </div>
-    <div v-if="error" class="error">
+    <div v-if="error" class="error" id="errorMessage">
       <p>{{ error }}</p>
     </div>
   </div>
@@ -96,6 +115,10 @@ const isLoading = ref(false); // Add isLoading state
 
 // Fetch vehicle options from CSV
 onMounted(async () => {
+  await fetchVehicleOptions();
+});
+
+const fetchVehicleOptions = async () => {
   try {
     const response = await axios.get("http://127.0.0.1:5000/data/ground_fleet_data.csv");
     const csvData = response.data;
@@ -105,7 +128,7 @@ onMounted(async () => {
   } catch (err) {
     console.error("Error fetching vehicle options:", err);
   }
-});
+};
 
 // Helper function to check if an option should be disabled
 const isOptionDisabled = (option, currentValue) => {
@@ -140,7 +163,6 @@ const addVehicle = () => {
 const removeVehicle = (index) => {
   selectedVehicles.value.splice(index, 1);
 };
-
 
 // Time period options
 const years = ref(Array.from({ length: 28 }, (_, i) => 2023 + i));
@@ -212,7 +234,9 @@ const gseDemandPerVehicleData = computed(() => {
     }]
   };
 
-  if (!results.value || !results.value.gse_demand || !results.value.gse_demand.gse_details ||
+  if (!results.value ||
+    !results.value.gse_demand ||
+    !results.value.gse_demand.gse_details ||
     !results.value.gse_demand.gse_details.length) {
     return defaultData;
   }
@@ -256,6 +280,7 @@ const gseDemandPerVehicleOptions = {
 </script>
 
 <style scoped>
+/* Container and overall layout */
 .form-container {
   max-width: 500px;
   margin: 40px auto;
@@ -269,22 +294,33 @@ const gseDemandPerVehicleOptions = {
   align-items: center;
 }
 
+/* Center the page title */
+h2 {
+  width: 100%;
+  text-align: center;
+}
+
+/* Form group: using a set width and margin auto to center */
+.form-group {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto 15px auto;
+}
+
+/* Range input styling */
 input[type="range"] {
   width: 93%;
 }
 
-.form-group {
-  width: 100%;
-  margin-bottom: 15px;
-}
-
-.form-group label {
+/* Legends */
+.form-group legend {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
   color: #555;
 }
 
+/* Vehicle row */
 .vehicle-row {
   display: flex;
   flex-direction: row;
@@ -300,6 +336,7 @@ input[type="range"] {
   border-radius: 4px;
 }
 
+/* Remove button */
 .remove-btn {
   flex: 1;
   background: grey;
@@ -315,6 +352,7 @@ input[type="range"] {
   background: #ff1a1a;
 }
 
+/* Add vehicle button */
 .add-btn {
   width: 100%;
   padding: 14px;
@@ -352,10 +390,13 @@ input[type="range"] {
   font-size: 0.9em;
 }
 
-button[type="submit"] {
+/* Calculate button */
+#calculateButton {
+  display: block;
+  margin: 0 auto 15px auto;
   width: 100%;
+  max-width: 500px;
   padding: 14px;
-  margin-bottom: 15px;
   border: none;
   border-radius: 6px;
   background: linear-gradient(135deg, #007bff, #0056b3);
@@ -366,11 +407,12 @@ button[type="submit"] {
   transition: all 0.3s ease-in-out;
 }
 
-button[type="submit"]:hover {
+#calculateButton:hover {
   background: linear-gradient(135deg, #0056b3, #003d82);
   transform: scale(1.05);
 }
 
+/* Results block */
 .results {
   margin-top: 20px;
   padding: 18px;
@@ -382,6 +424,7 @@ button[type="submit"]:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
+/* GSE details */
 .gse-detail {
   margin-top: 10px;
   padding: 10px;
@@ -393,6 +436,7 @@ button[type="submit"]:hover {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Error block */
 .error {
   margin-top: 20px;
   padding: 18px;
@@ -404,7 +448,7 @@ button[type="submit"]:hover {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Existing styles */
+/* Chart section */
 .chart-section {
   margin-top: 20px;
   padding: 10px;

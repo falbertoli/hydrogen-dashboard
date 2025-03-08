@@ -1,6 +1,6 @@
 <!-- frontend/src/views/HydrogenDemandView.vue -->
 <template>
-  <div>
+  <div class="form-container">
     <h1>Hydrogen Demand</h1>
     <HydrogenDemandForm />
   </div>

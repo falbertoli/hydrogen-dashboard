@@ -1,10 +1,12 @@
 <!-- filepath: /c:/Users/alber/flask-vue-app/hydrogen-dashboard/frontend/src/components/CostAnalysisForm.vue -->
 <template>
   <div class="form-container">
+    <h2>Cost Analysis Calculator</h2>
     <form @submit.prevent="submitForm">
       <div class="form-group">
-        <label for="fleetPercentage">Fleet Percentage: {{ fleetPercentage }}%</label>
-        <input type="range" v-model.number="fleetPercentage" min="0" max="100" step="1" />
+        <label for="fleetPercentage">Percentage of Fleet Using Hydrogen: {{ fleetPercentage }}%</label>
+        <input id="fleetPercentage" type="range" v-model.number="fleetPercentage" min="0" max="100" step="1"
+          class="slider" />
       </div>
       <div class="form-group">
         <label for="totalFlights">Total Flights per Year:</label>
@@ -31,13 +33,13 @@
 
     <div v-if="results" class="results">
       <h3>Results:</h3>
-      <p>Baseline Jet-A Utilization: {{ results.baseline_jetA_utilization }} hrs/yr</p>
-      <p>Hydrogen Utilization: {{ results.hydrogen_utilization }} hrs/yr</p>
-      <p>Baseline Revenue: ${{ results.baseline_revenue }} million</p>
-      <p>New H2 Revenue: ${{ results.new_h2_revenue }} million</p>
-      <p>Revenue Drop: ${{ results.revenue_drop }} million</p>
-      <p>Total Tax Credits: ${{ results.total_tax_credits }} million</p>
-      <p>Percent Revenue Drop: {{ results.percent_revenue_drop }}%</p>
+      <p>Baseline Jet-A Utilization: {{ results?.baseline_jetA_utilization?.toFixed(2) || 0 }} hrs/yr</p>
+      <p>Hydrogen Utilization: {{ results?.hydrogen_utilization?.toFixed(2) || 0 }} hrs/yr</p>
+      <p>Baseline Revenue: ${{ results?.baseline_revenue?.toFixed(2) || 0 }} million</p>
+      <p>New H2 Revenue: ${{ results?.new_h2_revenue?.toFixed(2) || 0 }} million</p>
+      <p>Revenue Drop: ${{ results?.revenue_drop?.toFixed(2) || 0 }} million</p>
+      <p>Total Tax Credits: ${{ results?.total_tax_credits?.toFixed(2) || 0 }} million</p>
+      <p>Percent Revenue Drop: {{ results?.percent_revenue_drop?.toFixed(2) || 0 }}%</p>
     </div>
     <div v-if="error" class="error">
       <p>{{ error }}</p>
@@ -47,8 +49,10 @@
 
 <script setup>
 import { ref } from "vue";
-import { submitFinancialAnalysis } from "../composables/useHydrogenCalculator";
+import axios from "axios";
+import { submitFinancialAnalysis } from "@/api";
 
+// Reactive variables
 const fleetPercentage = ref(30); // Default value based on provided logic
 const totalFlights = ref(500000); // Default value based on provided logic
 const atlantaFraction = ref(0.3); // Default value based on provided logic
@@ -57,24 +61,48 @@ const turnaroundTime = ref(30); // Default value based on provided logic
 const taxCredits = ref(1.0); // Default value based on provided logic
 const results = ref(null);
 const error = ref(null);
+const isLoading = ref(false);
 
+// const submitForm = async () => {
+//   try {
+//     const data = {
+//       fleetPercentage: fleetPercentage.value / 100,
+//       totalFlights: totalFlights.value,
+//       atlantaFraction: atlantaFraction.value,
+//       hydrogenDemand: hydrogenDemand.value,
+//       turnaroundTime: turnaroundTime.value,
+//       taxCredits: taxCredits.value,
+//     };
+
+//     const response = await submitFinancialAnalysis(data);
+//     results.value = response.data;
+//     error.value = null; // Clear any previous errors
+//   } catch (err) {
+//     error.value = "An error occurred while submitting the form. Please try again.";
+//     results.value = null; // Clear any previous results
+//   }
+// };
+
+// Submit form
 const submitForm = async () => {
+  results.value = null;
+  error.value = null;
+  isLoading.value = true; // Set loading state
   try {
-    const data = {
+    const response = await submitFinancialAnalysis({
       fleetPercentage: fleetPercentage.value / 100,
       totalFlights: totalFlights.value,
       atlantaFraction: atlantaFraction.value,
       hydrogenDemand: hydrogenDemand.value,
       turnaroundTime: turnaroundTime.value,
       taxCredits: taxCredits.value,
-    };
-
-    const response = await submitFinancialAnalysis(data);
-    results.value = response.data;
-    error.value = null; // Clear any previous errors
+    });
+    results.value = response;
   } catch (err) {
-    error.value = "An error occurred while submitting the form. Please try again.";
-    results.value = null; // Clear any previous results
+    console.error("Error submitting form:", err);
+    error.value = "An error occurred while calculating the cost analysis.";
+  } finally {
+    isLoading.value = false;
   }
 };
 </script>

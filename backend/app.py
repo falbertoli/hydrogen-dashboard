@@ -6,27 +6,26 @@ It interacts with SQLite databases to retrieve and process data.
 
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
-from hydrogen_demand_tool import h2_demand_ac, h2_demand_gse, growth_rate_computation
+from hydrogen_demand_tool import h2_demand_ac, h2_demand_gse
 from economic_impact import hydrogen_uti_rev
 from storage_cost import calculate_h2_storage_cost
 import os
 
-app = Flask(__name__)
-# CORS(app)
-CORS(app, resources={r"/*": {"origins": "*"}})
+app = Flask(__name__) # create a Flask app instance
+CORS(app, resources={r"/*": {"origins": "*"}}) # Enable CORS for all routes (r"/*) allowing requests from any origin ("*")
 
-@app.route('/h2_demand_ac', methods=['POST'])
+@app.route('/h2_demand_ac', methods=['POST']) # Dercorator maps the /h2_demand_ac URL to the h2_demand_ac_endpoint function.
 def h2_demand_ac_endpoint():
     """
     API endpoint to calculate hydrogen demand for aircraft routes.
     Expects JSON data with 'database_name', 'slider_perc', and 'end_year'.
     """
-    data = request.json
+    data = request.json # Get the JSON data from the request
     database_name = data['database_name']
     slider_perc = data['slider_perc']
     end_year = data['end_year']
-    result = h2_demand_ac(database_name, slider_perc, end_year)
-    return jsonify(result)
+    result = h2_demand_ac(database_name, slider_perc, end_year) # Call the h2_demand_ac function to perform the calculation
+    return jsonify(result) # Converts the result into a JSON and sends it back to the frontend
 
 @app.route('/h2_demand_gse', methods=['POST'])
 def h2_demand_gse_endpoint():
@@ -69,8 +68,14 @@ def economic_impact_endpoint():
     Expects JSON data with 'd', and 'tax_credits'.
     """
     data = request.json
-    d = data['d']
+    # d = data['d']
     tax_credits = data['tax_credits']
+    # fleetPercentage
+    # totalFlights
+    # atlantaFraction
+    # hydrogenDemand
+    # turnaroundTime
+    # taxCredits
     result = hydrogen_uti_rev(d, tax_credits)
     return jsonify(result)
 

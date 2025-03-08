@@ -1,4 +1,4 @@
-<!-- frontend/src/views/StorageView.vue -->
+frontend/src/views/StorageView.vue
 <template>
   <div>
     <h1>Storage Cost</h1>

@@ -6,7 +6,9 @@
 
 <script>
 import RegulationsForm from '@/components/RegulationsForm.vue';
+
 export default {
+  name: 'RegulationsView',
   components: {
     RegulationsForm,
   },

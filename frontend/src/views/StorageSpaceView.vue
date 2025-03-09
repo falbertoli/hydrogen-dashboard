@@ -1,18 +1,18 @@
 <!-- frontend/src/views/HydrogenDemandView.vue -->
 <template>
   <div class="form-container">
-    <h1>Hydrogen Demand</h1>
+    <h1>Storage Space</h1>
     <HydrogenDemandForm />
   </div>
 </template>
 
 <script>
-import HydrogenDemandForm from "../components/HydrogenDemandForm.vue";
+import StorageSpaceForm from '@/components/StorageSpaceForm.vue';
 
 export default {
-  name: "HydrogenDemandView",
+  name: 'StorageSpaceView',
   components: {
-    HydrogenDemandForm,
+    StorageSpaceForm,
   },
 };
 </script>

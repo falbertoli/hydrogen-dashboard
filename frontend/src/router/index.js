@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import HydrogenDemandView from "../views/HydrogenDemandView.vue";
+import StorageSpaceView from "../views/StorageSpaceView.vue";
 import StorageView from "../views/StorageView.vue";
 import CostAnalysisView from "../views/CostAnalysisView.vue";
 import RegulationsView from "@/views/RegulationsView.vue";
@@ -14,6 +15,11 @@ const router = createRouter({
       path: "/hydrogen-demand",
       name: "hydrogen-demand",
       component: HydrogenDemandView,
+    },
+    {
+      path: "/storage-space",
+      name: "storage-space",
+      component: StorageSpaceView,
     },
     // {
     //   path: "/cost-analysis",

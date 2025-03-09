@@ -4,14 +4,28 @@
     <h2>Hydrogen Demand Calculator</h2>
     <form @submit.prevent="submitForm">
       <fieldset class="form-group" id="fleetPercentageFieldset">
-        <legend>Percentage of Fleet Using Hydrogen:</legend>
+        <legend>Percentage of Fleet Using Hydrogen:
+          <span class="info-wrapper">
+            <i class="info-icon">i</i>
+            <span class="popup">
+              Adjust this slider to set the percentage of your fleet that will be converted to hydrogen power
+            </span>
+          </span>
+        </legend>
         <label for="fleetPercentage">{{ fleetPercentage }}%</label>
         <input id="fleetPercentage" type="range" v-model.number="fleetPercentage" min="0" max="100" step="1"
           class="slider" />
       </fieldset>
 
       <fieldset class="form-group" id="groundVehiclesFieldset">
-        <legend>Ground Vehicles:</legend>
+        <legend>Ground Vehicles:
+          <span class="info-wrapper">
+            <i class="info-icon">i</i>
+            <span class="popup">
+              Select the types of ground support equipment vehicles to include in the hydrogen demand calculation
+            </span>
+          </span>
+        </legend>
         <div id="groundVehicles" class="vehicle-list">
           <div v-for="(vehicle, index) in selectedVehicles" :key="index" class="vehicle-row"
             :id="'vehicle-row-' + index">
@@ -36,7 +50,14 @@
       </fieldset>
 
       <fieldset class="form-group" id="endYearFieldset">
-        <legend>Select End Year:</legend>
+        <legend>Select End Year:
+          <span class="info-wrapper">
+            <i class="info-icon">i</i>
+            <span class="popup">
+              Choose the target year for implementing hydrogen infrastructure
+            </span>
+          </span>
+        </legend>
         <div class="time-selection">
           <select v-model="selectedYear" id="selectedYear">
             <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
@@ -298,11 +319,12 @@ const gseDemandPerVehicleOptions = {
 h2 {
   width: 100%;
   text-align: center;
+
 }
 
 /* Form group: using a set width and margin auto to center */
 .form-group {
-  width: 100%;
+  width: 92%;
   max-width: 500px;
   margin: 0 auto 15px auto;
 }
@@ -393,7 +415,7 @@ input[type="range"] {
 /* Calculate button */
 #calculateButton {
   display: block;
-  margin: 0 auto 15px auto;
+  margin: 0 15px 15px auto;
   width: 100%;
   max-width: 500px;
   padding: 14px;
@@ -461,5 +483,61 @@ input[type="range"] {
   text-align: center;
   color: #333;
   margin-bottom: 10px;
+}
+
+/* Info icon and popup styles  */
+.info-wrapper {
+  display: inline-block;
+  position: relative;
+  margin-left: 0px;
+}
+
+.info-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 15px;
+  background: #007bff;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: help;
+  font-style: normal;
+  margin-left: 0;
+}
+
+.popup {
+  visibility: hidden;
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: max-content;
+  max-width: 200px;
+  font-size: 12px;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.info-wrapper:hover .popup {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
 }
 </style>

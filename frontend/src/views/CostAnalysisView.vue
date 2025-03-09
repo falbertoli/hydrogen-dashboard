@@ -11,6 +11,7 @@
 import CostAnalysisForm from '@/components/CostAnalysisForm.vue';
 
 export default {
+  name: 'CostAnalysisView',
   components: {
     CostAnalysisForm,
   },

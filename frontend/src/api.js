@@ -1,7 +1,7 @@
 // frontend/src/api.js
 /*
  * How to use in Vue (import api from "./api.js";)
- * Imporrt the functions: Import these functions in the script section of the Vue component where you want to use them = Where you want to make the API call.
+ * Import the functions: Import these functions in the script section of the Vue component where you want to use them = Where you want to make the API call.
  * Call the functions: Call the functions in the methods section of the Vue component. Use the functions to make the API calls.
  */
 import axios from "axios"; // Import axios library. Simplifies HTTP requests in JavaScript.

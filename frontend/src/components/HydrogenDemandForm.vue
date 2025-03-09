@@ -112,6 +112,33 @@
           {{ detail.hydrogen_volume_per_vehicle.toFixed(2) }} ft³
         </p>
       </div>
+      <h3>Tank Specifications</h3>
+      <div class="tank-specs">
+        <dl>
+          <dt>Tank Dimensions</dt>
+          <dd>{{ tankSpecs.width }}ft (width) × {{ tankSpecs.length }}ft (length)</dd>
+
+          <dt>Water Capacity</dt>
+          <dd>{{ tankSpecs.waterCapacityGal }} gallons ({{ tankSpecs.waterCapacityFt3.toFixed(2) }} ft³)</dd>
+
+          <dt>Ullage Factor</dt>
+          <dd>{{ (tankSpecs.ullage * 100).toFixed(2) }}%</dd>
+
+          <dt>Daily Evaporation Loss</dt>
+          <dd>{{ (tankSpecs.evaporation * 100).toFixed(2) }}%</dd>
+
+          <dt>Effective H₂ Storage per Tank</dt>
+          <dd>{{ effectiveStorage.toFixed(2) }} ft³</dd>
+        </dl>
+      </div>
+      <p>
+        Number of Tanks Required:
+        {{ tanksRequiredDisplay }}
+      </p>
+      <p>
+        Storage Area Required:
+        {{ results?.storage_area?.toFixed(2) || 0 }} ft²
+      </p>
     </div>
     <div v-if="error" class="error" id="errorMessage">
       <p>{{ error }}</p>
@@ -200,6 +227,12 @@ const submitForm = async () => {
       end_year: parseInt(selectedYear.value)
     });
     results.value = response;
+    // Add storage area calculation
+    if (results.value.total_demand) {
+      results.value.storage_area = calculateStorageArea(
+        results.value.total_demand
+      );
+    }
   } catch (err) {
     console.error("Error submitting form:", err);
     error.value = "An error occurred while calculating the hydrogen demand.";
@@ -298,14 +331,63 @@ const gseDemandPerVehicleOptions = {
     y: { title: { display: true, text: "Demand (ft³)" }, beginAtZero: true },
   },
 };
+
+// Add these reactive constants
+const tankSpecs = ref({
+  width: 10.1667,
+  length: 56.5,
+  waterCapacityGal: 18014,
+  waterCapacityFt3: 18014 / 7.48052,
+  ullage: 0.05,
+  evaporation: 0.9925,
+  material: "Stainless Steel",
+  insulation: "Vacuum Super Insulation",
+  maxPressure: "250 psi"
+});
+
+const effectiveStorage = computed(() => {
+  return tankSpecs.value.waterCapacityFt3 *
+    (1 - tankSpecs.value.ullage) *
+    tankSpecs.value.evaporation;
+});
+
+const calculateStorageArea = (H2DemandVol) => {
+  if (!H2DemandVol || H2DemandVol <= 0) return 0;
+
+  const nbrTanks = Math.ceil(H2DemandVol / effectiveStorage.value); // Use ceil here for area calc
+  return tankSpecs.value.width * tankSpecs.value.length * nbrTanks;
+};
+
+const numberOfTanks = computed(() => {
+  if (!results.value?.total_demand || !effectiveStorage.value) return 0;
+  return results.value.total_demand / effectiveStorage.value;
+});
+
+const tanksRequiredDisplay = computed(() => {
+  if (!results.value?.total_demand || !effectiveStorage.value || effectiveStorage.value <= 0) {
+    return "No tanks required";
+  }
+
+  const exactTanks = results.value.total_demand / effectiveStorage.value;
+  const requiredTanks = Math.ceil(exactTanks);
+
+  if (requiredTanks === 0) {
+    return "0 tanks required";
+  } else if (requiredTanks === 1) {
+    return "1 tank required";
+  } else {
+    const lastTankUsage = ((exactTanks - (requiredTanks - 1)) * 100).toFixed(2);
+    return `${requiredTanks} tanks required (${lastTankUsage}% usage for the last tank)`;
+  }
+});
 </script>
 
 <style scoped>
 /* Container and overall layout */
 .form-container {
-  max-width: 500px;
+  max-width: 700px;
   margin: 40px auto;
-  padding: 50px;
+  padding: 10px;
   border-radius: 10px;
   background-color: white;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
@@ -325,7 +407,7 @@ h2 {
 /* Form group: using a set width and margin auto to center */
 .form-group {
   width: 92%;
-  max-width: 500px;
+  max-width: 650px;
   margin: 0 auto 15px auto;
 }
 
@@ -437,7 +519,8 @@ input[type="range"] {
 /* Results block */
 .results {
   margin-top: 20px;
-  padding: 18px;
+  width: 95%;
+  padding: 10px;
   background: #e9f5ff;
   border-radius: 8px;
   text-align: center;
@@ -539,5 +622,35 @@ input[type="range"] {
   border-width: 5px;
   border-style: solid;
   border-color: #333 transparent transparent transparent;
+}
+
+.results p {
+  margin: 8px 0;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+}
+
+.tank-specs {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+}
+
+.tank-specs dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+  gap: 10px 15px;
+}
+
+.tank-specs dt {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.tank-specs dd {
+  margin: 0;
+  color: #4a5568
 }
 </style>

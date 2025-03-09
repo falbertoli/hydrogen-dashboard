@@ -7,8 +7,8 @@ It interacts with SQLite databases to retrieve and process data.
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from hydrogen_demand_tool import h2_demand_ac, h2_demand_gse
-from economic_impact import hydrogen_uti_rev
-from storage_cost import calculate_h2_storage_cost
+# from economic_impact import hydrogen_uti_rev
+# from storage_cost import calculate_h2_storage_cost
 import os
 
 app = Flask(__name__) # create a Flask app instance
@@ -61,47 +61,47 @@ def h2_demand_endpoint():
     }
     return jsonify(result)
 
-@app.route('/economic_impact', methods=['POST'])
-def economic_impact_endpoint():
-    """
-    API endpoint to calculate the economic impact of switching to hydrogen fuel.
-    Expects JSON data with 'd', and 'tax_credits'.
-    """
-    data = request.json
-    # d = data['d']
-    tax_credits = data['tax_credits']
-    # fleetPercentage
-    # totalFlights
-    # atlantaFraction
-    # hydrogenDemand
-    # turnaroundTime
-    # taxCredits
-    result = hydrogen_uti_rev(d, tax_credits)
-    return jsonify(result)
+# @app.route('/economic_impact', methods=['POST'])
+# def economic_impact_endpoint():
+#     """
+#     API endpoint to calculate the economic impact of switching to hydrogen fuel.
+#     Expects JSON data with 'd', and 'tax_credits'.
+#     """
+#     data = request.json
+#     # d = data['d']
+#     tax_credits = data['tax_credits']
+#     # fleetPercentage
+#     # totalFlights
+#     # atlantaFraction
+#     # hydrogenDemand
+#     # turnaroundTime
+#     # taxCredits
+#     result = hydrogen_uti_rev(d, tax_credits)
+#     return jsonify(result)
 
-@app.route('/storage_cost', methods=['POST'])
-def storage_cost_endpoint():
-    """
-    API endpoint to calculate the storage cost for hydrogen.
-    Expects JSON data with 'total_h2_volume_gal', 'number_of_tanks', 'tank_diameter_ft', 
-    'tank_length_ft', 'cost_per_sqft_construction', and 'cost_per_cuft_insulation'.
-    """
-    data = request.json
-    total_h2_volume_gal = data['total_h2_volume_gal']
-    number_of_tanks = data['number_of_tanks']
-    tank_diameter_ft = data['tank_diameter_ft']
-    tank_length_ft = data['tank_length_ft']
-    cost_per_sqft_construction = data['cost_per_sqft_construction']
-    cost_per_cuft_insulation = data['cost_per_cuft_insulation']
-    result = calculate_h2_storage_cost(
-        total_h2_volume_gal,
-        number_of_tanks,
-        tank_diameter_ft,
-        tank_length_ft,
-        cost_per_sqft_construction,
-        cost_per_cuft_insulation
-    )
-    return jsonify(result)
+# @app.route('/storage_cost', methods=['POST'])
+# def storage_cost_endpoint():
+#     """
+#     API endpoint to calculate the storage cost for hydrogen.
+#     Expects JSON data with 'total_h2_volume_gal', 'number_of_tanks', 'tank_diameter_ft', 
+#     'tank_length_ft', 'cost_per_sqft_construction', and 'cost_per_cuft_insulation'.
+#     """
+#     data = request.json
+#     total_h2_volume_gal = data['total_h2_volume_gal']
+#     number_of_tanks = data['number_of_tanks']
+#     tank_diameter_ft = data['tank_diameter_ft']
+#     tank_length_ft = data['tank_length_ft']
+#     cost_per_sqft_construction = data['cost_per_sqft_construction']
+#     cost_per_cuft_insulation = data['cost_per_cuft_insulation']
+#     result = calculate_h2_storage_cost(
+#         total_h2_volume_gal,
+#         number_of_tanks,
+#         tank_diameter_ft,
+#         tank_length_ft,
+#         cost_per_sqft_construction,
+#         cost_per_cuft_insulation
+#     )
+#     return jsonify(result)
 
 @app.route('/data/<path:filename>', methods=['GET'])
 def download_file(filename):

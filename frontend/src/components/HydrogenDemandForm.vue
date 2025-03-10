@@ -139,6 +139,7 @@
         Storage Area Required:
         {{ results?.storage_area?.toFixed(2) || 0 }} ft²
       </p>
+      <HydrogenMap :hydrogenStorageArea="results?.storage_area" :availableAreas="availableAreas" />
     </div>
     <div v-if="error" class="error" id="errorMessage">
       <p>{{ error }}</p>
@@ -151,6 +152,7 @@ import { ref, onMounted, computed } from "vue";
 import axios from "axios";
 import { submitHydrogenDemand } from "@/api";
 import Chart from "@/components/Chart.vue";
+import HydrogenMap from "@/components/HydrogenMap.vue";
 
 // Reactive state
 const fleetPercentage = ref(0);
@@ -160,6 +162,115 @@ const results = ref(null);
 const error = ref(null);
 const vehicleOptions = ref([]);
 const isLoading = ref(false); // Add isLoading state
+
+const availableAreas = [
+  // Airport Areas
+  {
+    name: "Terminal South Storage Area",
+    type: "polygon",
+    coordinates: [
+      [33.6405, -84.4265],
+      [33.6415, -84.4265],
+      [33.6415, -84.4255],
+      [33.6405, -84.4255],
+    ],
+    capacity: 20000 // Capacity in ft²
+  },
+  {
+    name: "Terminal North Storage Area",
+    type: "polygon",
+    coordinates: [
+      [33.6415, -84.4285],
+      [33.6425, -84.4285],
+      [33.6425, -84.4275],
+      [33.6415, -84.4275],
+    ],
+    capacity: 15000 // Capacity in ft²
+  },
+  {
+    name: "Cargo Area A",
+    type: "polygon",
+    coordinates: [
+      [33.639, -84.429],
+      [33.640, -84.429],
+      [33.640, -84.428],
+      [33.639, -84.428],
+    ],
+    capacity: 30000 // Capacity in ft²
+  },
+  {
+    name: "Cargo Area B",
+    type: "polygon",
+    coordinates: [
+      [33.638, -84.430],
+      [33.639, -84.430],
+      [33.639, -84.429],
+      [33.638, -84.429],
+    ],
+    capacity: 25000 // Capacity in ft²
+  },
+  {
+    name: "Service Area",
+    type: "circle",
+    center: [33.6402, -84.4272],
+    radius: 100, // Radius in feet
+    capacity: 18000 // Capacity in ft²
+  },
+
+  // Non-Airport Areas
+  {
+    name: "Downtown Hydrogen Facility",
+    type: "circle",
+    center: [33.749, -84.388],
+    radius: 200, // Radius in feet
+    capacity: 25000 // Capacity in ft²
+  },
+  {
+    name: "East Side Storage Lot",
+    type: "polygon",
+    coordinates: [
+      [33.748, -84.396],
+      [33.749, -84.395],
+      [33.751, -84.395],
+      [33.752, -84.396],
+      [33.751, -84.397],
+      [33.749, -84.397]
+    ],
+    capacity: 8000 // Capacity in ft²
+  },
+  {
+    name: "West Side Hydrogen Depot",
+    type: "polygon",
+    coordinates: [
+      [33.652, -84.436],
+      [33.653, -84.435],
+      [33.653, -84.433],
+      [33.652, -84.432],
+      [33.651, -84.432],
+      [33.651, -84.436]
+    ],
+    capacity: 12000 // Capacity in ft²
+  },
+  {
+    name: "Northside Hydrogen Storage",
+    type: "circle",
+    center: [33.765, -84.388],
+    radius: 300, // Radius in feet
+    capacity: 10000 // Capacity in ft²
+  },
+  {
+    name: "Southside Warehouse",
+    type: "polygon",
+    coordinates: [
+      [33.613, -84.475],
+      [33.614, -84.474],
+      [33.615, -84.475],
+      [33.615, -84.476],
+      [33.613, -84.476]
+    ],
+    capacity: 6000 // Capacity in ft²
+  }
+];
 
 // Fetch vehicle options from CSV
 onMounted(async () => {

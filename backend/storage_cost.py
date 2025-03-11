@@ -1,7 +1,3 @@
-"""
-This module provides functions to calculate the storage cost for hydrogen.
-"""
-
 import numpy as np
 #import H2_demand_tool 1.py 
 
@@ -74,3 +70,28 @@ def calculate_h2_storage_cost(
         "construction_cost": construction_cost,
         "total_infrastructure_cost": total_infrastructure_cost
     }
+
+
+# ---------------------------
+# Example usage :
+if __name__ == "__main__":
+    # Example input assumptions (To be changed with values from demand tool)
+    total_h2_volume_gal = 5000000   # gallons
+    number_of_tanks = 20
+    tank_diameter_ft = 10
+    tank_length_ft = 40
+    cost_per_sqft_construction = 580   # $/ft^2
+    cost_per_cuft_insulation = 15     # $/ft^3
+    
+    results = calculate_h2_storage_cost(
+        total_h2_volume_gal,
+        number_of_tanks,
+        tank_diameter_ft,
+        tank_length_ft,
+        cost_per_sqft_construction,
+        cost_per_cuft_insulation
+    )
+    
+    print("=== Hydrogen Storage Cost Estimation ===")
+    for key, val in results.items():
+        print(f"{key}: {val:,.2f}")

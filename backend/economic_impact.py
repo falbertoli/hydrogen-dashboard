@@ -1,48 +1,122 @@
-"""
-This module provides functions to calculate the economic impact of switching to hydrogen fuel.
-It interacts with SQLite databases to retrieve and process data.
-"""
-
 import pandas as pd
-import sqlite3
+import numpy as np
 
-def hydrogen_uti_rev(demand, tax_credits):
-    """
-    Calculate the economic impact of switching to hydrogen fuel.
-    """
-    utilization_h2 = (baseline_jet_a_util) - (fraction_h2 * total_flights * (turnaround_time / 60.0))
-    baseline_revenue = fraction_h2 * revenue_per_flight * fuel_cost
-    new_h2_revenue = fraction_h2 * revenue_per_flight * fuel_cost * (utilization_h2 / baseline_jet_a_util)
-    revenue_drop = (baseline_revenue - new_h2_revenue)
-    total_tax_credits = ((demand * tax_credits) / 1_000_000)
-    return utilization_h2, revenue_drop, total_tax_credits
+
+def hydrogen_uti_rev(A, B, C, D, E, tax_credits):
+
+    # Calculate H2 utilization
+    utilization_h2 = (baseline_jetA_util) - (A * B * (E / 60.0))
+
+    # Baseline revenue for the fraction A from ATL for domestic delta flights (F is total annual revenue)
+    baseline_revenue = A * C * F
+
+    # New revenue from H2 flights (scaled by ratio of remaining H2 hours to total hours)
+    new_h2_revenue = baseline_revenue * (utilization_h2 / baseline_jetA_util)
+
+    # Total Tax credits 
+    total_tax_crd = ((D * tax_credits) / 1_000_000)
+
+    # Drop = (baseline - new) minus cost offset from tax credits
+    revenue_drop = (baseline_revenue - new_h2_revenue) 
+
+    pct_drop = 100 * (revenue_drop / baseline_revenue)
+
+    return utilization_h2, revenue_drop, total_tax_crd, baseline_revenue, new_h2_revenue, pct_drop
+
 
 if __name__ == "__main__":
-    conn = sqlite3.connect("database/economic_data.db")
-    uti_data = pd.read_sql("SELECT * FROM my_table", conn)
-    conn.close()
 
-    fraction_h2 = 0.3
-    total_flights = 500_000
-    revenue_per_flight = 0.3
-    demand = 500 * fraction_h2 * total_flights
-    turnaround_time = 30
-    tax_credits = 1.0
-    delta_data = uti_data[(uti_data['UNIQUE_CARRIER'] == 'DL') & (uti_data['REGION'] == 'D')]
-    baseline_jet_a_util = fraction_h2 * revenue_per_flight * delta_data['REV_ACRFT_HRS_AIRBORNE_610'].sum()
-    fuel_cost = 32_599_650 / 1_000_000
-    utilization_h2, revenue_drop, total_tax_credits = hydrogen_uti_rev(demand, tax_credits)
-    print(f"Total flights per year (total_flights) = {total_flights:,}")
-    print(f"Fraction to hydrogen (fraction_h2)   = {fraction_h2:.0%}  => # H2 flights = {fraction_h2 * total_flights:,.0f}")
-    print(f"Change in turnaround time (turnaround_time) = {turnaround_time:,.0f} mins/flight")
-    print(f"\n[1] Baseline Jet-A Utilization (for fraction_h2 for flights from ATL) = {baseline_jet_a_util:,.0f} hrs/yr")
+    # ------------------------------------------------------------------
+    # 1) Load Data
+    # ------------------------------------------------------------------
+    uti_data = pd.read_csv('C:/Users/belsa/Documents/GitHub/FLIGHT/Economic/T_SCHEDULE_T1.csv')
+    operations_data = pd.read_csv('C:/Users/belsa/Documents/GitHub/FLIGHT/Economic/T_T100D_SEGMENT_US_CARRIER_ONLY.csv')
+    #rev_data = pd.read_csv('C:/Users/belsa/Documents/GitHub/FLIGHT/Economic/revenue.csv')
+    income_data = pd.read_csv('C:/Users/belsa/Documents/GitHub/FLIGHT/Economic/T_F41SCHEDULE_P12.csv')
+
+    # ------------------------------------------------------------------
+    # 2) Filter Data for Delta Airline and Summation
+    # ------------------------------------------------------------------
+    total_delta_uti = uti_data[
+        (uti_data['UNIQUE_CARRIER'] == 'DL') & (uti_data['REGION'] == 'D')
+    ]
+    atl_delta_oper = operations_data[
+        (operations_data['UNIQUE_CARRIER_NAME'] == 'Delta Air Lines Inc.') & (operations_data['ORIGIN'] == 'ATL')
+    ]
+    total_delta_oper = operations_data[
+        (operations_data['UNIQUE_CARRIER_NAME'] == 'Delta Air Lines Inc.')
+    ]
+    total_revenue = income_data[(income_data['UNIQUE_CARRIER_NAME'] == 'Delta Air Lines Inc.') & (income_data['REGION'] == 'D')]
+
+    #total_income = income_data[(income_data['UNIQUE_CARRIER_NAME'] == 'Delta Air Lines Inc.') & (income_data['REGION'] == 'D')]
+
+    # ------------------------------------------------------------------
+    # 3) Define Global Inputs & constants
+    # ------------------------------------------------------------------
+    # Fraction of flights changed to hydrogen
+    A = 0.3
+    
+    # Total flights per year (so # of hydrogen flights = A*B from hartsfield airport)
+    B = total_delta_oper['DEPARTURES_PERFORMED'].sum() # (atl_del_oper) are the total number of domestic flights from atl in an year
+
+    # Ratio of Delta flights from ATL to total Delta Flights Domestic 
+    C = atl_delta_oper['DEPARTURES_PERFORMED'].sum()/B
+    
+    # Hydrogen demand (gallons) (5000 gal Per flight shoud be repalced with value from demand tool) (remove *A*B if using total yearly demand as input)
+    D = 2752285.804321897*7.48052*12
+
+    # Extra turnaround time (minutes) per hydrogen flight
+    E = 30
+
+    # Tax credit ($/gal) we might receive or pay
+    tax_credits = 0.1
+
+    # Jet-A operating revenue for Delta (domestic region), 2024, in millions of USD
+    total_revenue = income_data['OP_REVENUES'].sum()/ 1_000_000  # convert to millions
+    F = total_revenue
+
+    # Baseline (Jet-A) utilization for fraction A and from ATL only:
+    baseline_jetA_util = A * C * total_delta_uti['REV_ACRFT_HRS_AIRBORNE_610'].sum()
+
+    # ------------------------------------------------------------------
+    # 4) Compute function 
+    # ------------------------------------------------------------------
+    utilization_h2, revenue_drop, total_tax_credits, baseline_revenue, new_h2_revenue, pct_drop = hydrogen_uti_rev(A, B, C, D, E, tax_credits)
+
+
+    # ------------------------------------------------------------------
+    # 5) reduced income 
+    # ------------------------------------------------------------------
+    
+    income_tax = (A * income_data['INCOME_TAX'].sum())/1_000_000
+    income_tax_credits = income_tax - total_tax_credits
+
+   # ------------------------------------------------------------------
+    # 5) reduced income 
+    # ------------------------------------------------------------------
+
+    tax_credits_compensation = total_tax_credits - revenue_drop 
+
+    # ------------------------------------------------------------------
+    # 7) Print Values
+    # ------------------------------------------------------------------
+
+    print("----- Hydrogen Fleet Calculation -----")
+    print(f"Total flights per year (B) (All Domestic) = {B:,}")
+    print(f"Fraction to hydrogen (A) (from ATL)  = {A:.0%}  => # H2 flights = {A*B*C:,.0f}")
+    print(f"Change in turnaround time (E) = {E:,.0f} mins/flight")
+
+    print(f"\n[1] Baseline Jet-A Utilization (for fraction A for flights from ATL) = {baseline_jetA_util:,.0f} hrs/yr")
     print(f"[2] Hydrogen utilization (after extra turnaround) = {utilization_h2:,.0f} hrs/yr")
-    baseline_revenue = fraction_h2 * revenue_per_flight * fuel_cost
-    new_h2_revenue = (fraction_h2 * revenue_per_flight * fuel_cost * (utilization_h2 / baseline_jet_a_util))
-    print(f"\n[3] Baseline Jet-A Revenue (for fraction_h2 for flights from ATL) = ${baseline_revenue:,.3f} million")
+
+    print(f"\n[3] Baseline Jet-A Revenue (for fraction A for flights from ATL) = ${baseline_revenue:,.3f} million")
     print(f"[4] Hydrogen Revenue                     = ${new_h2_revenue :,.3f} million")
-    print(f"[5] Total Tax Credits ($/gal)                  = ${total_tax_credits:,.2f}million")
+    print(f"[5] Total Tax Credits ($)                  = ${total_tax_credits:,.2f} million")
+
     print(f"\n[6] Drop in Revenue = ${revenue_drop:,.3f} million")
-    pct_drop = 100 * (revenue_drop / baseline_revenue) if baseline_revenue else 0.0
+
     print(f"[7] Percent Drop in Revenue = {pct_drop:.2f}%")
+    print(f"[8] Income Tax Without Tax Credits = {income_tax:.2f} million")
+    print(f"[9] Income Tax With Tax Credits = {income_tax_credits:.2f} million")
+    print(f"[10] Tax Credit Compensation = {tax_credits_compensation:.2f} million")
     print("---------------------------------------")

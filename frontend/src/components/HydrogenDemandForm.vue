@@ -150,7 +150,7 @@
 <script setup>
 import { ref, onMounted, computed } from "vue";
 import axios from "axios";
-import { submitHydrogenDemand } from "@/api";
+import { hydrogenService } from '../services/api.js';
 import Chart from "@/components/Chart.vue";
 import HydrogenMap from "@/components/HydrogenMap.vue";
 
@@ -332,7 +332,7 @@ const submitForm = async () => {
   error.value = null;
   isLoading.value = true; // Set loading state
   try {
-    const response = await submitHydrogenDemand({
+    const response = await hydrogenService.calculateTotalDemand({
       slider_perc: fleetPercentage.value / 100,
       gse: selectedVehicles.value,
       end_year: parseInt(selectedYear.value)

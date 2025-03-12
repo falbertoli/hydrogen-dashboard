@@ -29,7 +29,7 @@ const storageArea = ref(0);
 const results = ref(null);
 
 const submitForm = async () => {
-  results.value = await submitStorage(storageArea.value);
+  results.value = await storageService.calculateStorageCost(storageArea.value);
   console.log("API Response:", results.value);  // Debugging
 };
 </script>

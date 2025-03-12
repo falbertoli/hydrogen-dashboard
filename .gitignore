@@ -1,6 +1,13 @@
 # ==============================
-# GENERAL IGNORES
+# GENERAL
 # ==============================
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
 
 # Logs
 logs/
@@ -10,81 +17,117 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+vite-debug.log
 
-# Environment variables
-.env
-.env.local
-.env.*.json
-
-# Editor/IDE settings
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# System files
-.DS_Store
-Thumbs.db
-
-# Python Bytecode and Cache
-__pycache__/
-*.py[cod]
-*$py.class
-pip-log.txt
-pip-selfcheck.json
-
-# Virtual Environment
-venv/
-ENV/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Poetry / Pipenv
-poetry.lock
-Pipfile
-Pipfile.lock
-
-# Node.js and NPM
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-node_modules
-
-.DS_Store
-coverage
-*.local
-
-# Build and dist folders
-dist/
-dist
-dist-ssr
-build/
-out/
-.vite/
-
-# Dependency locks
-package-lock.json
-pnpm-lock.yaml
-yarn.lock
-
-# ==============================
-# FRONTEND (Vue + Vite)
-# ==============================
-# Editor directories and files
+# Editor/IDE
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+*.swp
+*.swo
 
-*.tsbuildinfo
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 
-# Vue-specific files
+# ==============================
+# BACKEND (PYTHON/FLASK)
+# ==============================
+
+# Python Bytecode and Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.env/
+.venv/
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+data/*.db
+!data/.gitkeep
+
+# Instance folder - contains sensitive data
+instance/
+
+# Local configurations
+config.local.py
+local_settings.py
+
+# Migration files
+migrations/
+
+# Type checking
+.mypy_cache/
+.pytype/
+.pyre/
+
+# Testing
+.tox/
+.coverage
+.coverage.*
+coverage.xml
+*.cover
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Python packaging
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+bin/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+
+# ==============================
+# FRONTEND (VUE/VITE)
+# ==============================
+
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+dist-ssr/
+coverage/
+*.local
+.vite/
+
+# Dependency lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Vue specific
 .vueproject/
 .vite/deps/
 .vite/cache/
@@ -92,39 +135,27 @@ yarn.lock
 .vite/temp/
 .vite/workspaces.json
 
-# Logs from Vue development server
-vite-debug.log
-
+# Testing
 /cypress/videos/
 /cypress/screenshots/
+test-results/
+playwright-report/
+
+# TypeScript
+*.tsbuildinfo
 
 # ==============================
-# BACKEND (Flask + Python)
+# KEEP THESE FILES/FOLDERS
 # ==============================
 
-# Flask-specific files
-instance/
-migrations/
-*.sqlite3
-*.db
+# Keep configuration templates
+!config.py
+!.env.example
+!docker-compose.example.yml
 
-# Pandas cache
-.pandas_cache/
+# Keep empty directories with .gitkeep
+!.gitkeep
 
-# Flask secret key and config
-config.py
-secret_key.py
-
-# Pytest / Test files
-.coverage
-pytest_cache/
-
-# MyPy / Type checking
-.mypy_cache/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# Virtual environment (already covered above)
-venv/
-ENV/
+# Keep documentation
+!README.md
+!docs/

@@ -1,0 +1,130 @@
+# ==============================
+# GENERAL IGNORES
+# ==============================
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Environment variables
+.env
+.env.local
+.env.*.json
+
+# Editor/IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python Bytecode and Cache
+__pycache__/
+*.py[cod]
+*$py.class
+pip-log.txt
+pip-selfcheck.json
+
+# Virtual Environment
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Poetry / Pipenv
+poetry.lock
+Pipfile
+Pipfile.lock
+
+# Node.js and NPM
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+node_modules
+
+.DS_Store
+coverage
+*.local
+
+# Build and dist folders
+dist/
+dist
+dist-ssr
+build/
+out/
+.vite/
+
+# Dependency locks
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# ==============================
+# FRONTEND (Vue + Vite)
+# ==============================
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+# Vue-specific files
+.vueproject/
+.vite/deps/
+.vite/cache/
+.vite/deps_temp/
+.vite/temp/
+.vite/workspaces.json
+
+# Logs from Vue development server
+vite-debug.log
+
+/cypress/videos/
+/cypress/screenshots/
+
+# ==============================
+# BACKEND (Flask + Python)
+# ==============================
+
+# Flask-specific files
+instance/
+migrations/
+*.sqlite3
+*.db
+
+# Pandas cache
+.pandas_cache/
+
+# Flask secret key and config
+config.py
+secret_key.py
+
+# Pytest / Test files
+.coverage
+pytest_cache/
+
+# MyPy / Type checking
+.mypy_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Virtual environment (already covered above)
+venv/
+ENV/

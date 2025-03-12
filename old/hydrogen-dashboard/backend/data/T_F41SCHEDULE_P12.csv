@@ -1,0 +1,419 @@
+NET_INCOME,OP_PROFIT_LOSS,OP_REVENUES,OP_EXPENSES,INCOME_PRE_TAX,INCOME_TAX,UNIQUE_CARRIER,UNIQUE_CARRIER_NAME,CARRIER_NAME,REGION,YEAR,QUARTER
+-712607.00,-746208.00,1876026.00,2622234.00,-879867.00,-167260.00,FX,Federal Express Corporation,Federal Express Corporation,A,2023,2
+-664116.00,-815268.00,1812034.00,2627302.00,-687582.00,-23466.00,FX,Federal Express Corporation,Federal Express Corporation,A,2023,3
+-651886.00,-655370.00,1920594.00,2575964.00,-704701.00,-52815.00,FX,Federal Express Corporation,Federal Express Corporation,A,2023,4
+-441253.89,-470334.63,1563516.03,2033850.66,-506497.03,-65243.14,B6,JetBlue Airways,JetBlue Airways,D,2023,3
+-340954.00,-452214.00,1307316.00,1759530.00,-427322.00,-86368.00,FX,Federal Express Corporation,Federal Express Corporation,P,2023,4
+-298791.00,-618862.00,1960869.00,2579731.00,-374008.00,-75217.00,FX,Federal Express Corporation,Federal Express Corporation,A,2023,1
+-294047.62,-294047.62,1169433.32,1463480.94,-294047.62,0.00,AA,American Airlines Inc.,American Airlines Inc.,A,2023,1
+-288914.60,-288914.60,1590649.17,1879563.77,-288914.60,0.00,AA,American Airlines Inc.,American Airlines Inc.,A,2023,4
+-269884.00,-319553.00,1293038.00,1612591.00,-330195.00,-60311.00,FX,Federal Express Corporation,Federal Express Corporation,P,2023,3
+-266784.57,-266784.57,2372463.87,2639248.44,-266784.57,0.00,AA,American Airlines Inc.,American Airlines Inc.,A,2023,3
+-258801.65,-234102.19,7166684.19,7400786.38,-340538.61,-81736.96,UA,United Air Lines Inc.,United Air Lines Inc.,D,2023,1
+-246235.00,-394802.00,6663456.00,7058258.00,-279529.00,-33294.00,WN,Southwest Airlines Co.,Southwest Airlines Co.,D,2023,4
+-233930.65,-295070.82,1688688.19,1983759.01,-324928.57,-90997.92,B6,JetBlue Airways,JetBlue Airways,D,2023,1
+-218184.76,31995.27,9166566.02,9134570.75,-325028.27,-106843.51,AA,American Airlines Inc.,American Airlines Inc.,D,2023,3
+-185853.00,437900.00,9553721.00,9115821.00,-288589.00,-102736.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,D,2023,1
+-171422.84,-188732.95,1108406.03,1297138.98,-200177.86,-28755.02,5X,United Parcel Service,United Parcel Service,D,2023,4
+-161797.28,-189249.97,1164470.54,1353720.51,-201109.27,-39311.99,NK,Spirit Air Lines,Spirit Air Lines,D,2023,4
+-153850.00,-274205.00,5504766.00,5778971.00,-197150.00,-43300.00,WN,Southwest Airlines Co.,Southwest Airlines Co.,D,2023,1
+-153549.90,-219473.99,971188.95,1190662.94,-223947.04,-70397.14,5X,United Parcel Service,United Parcel Service,D,2023,3
+-150004.32,-151480.60,16665.94,168146.54,-152974.52,-2970.20,HA,Hawaiian Airlines Inc.,Hawaiian Airlines Inc.,P,2023,3
+-144284.30,-202249.47,1221470.75,1423720.22,-212454.12,-68169.82,5X,United Parcel Service,United Parcel Service,D,2023,1
+-138721.03,-133100.80,1832488.01,1965588.81,-182695.39,-43974.37,UA,United Air Lines Inc.,United Air Lines Inc.,A,2023,1
+-136596.97,-163654.12,1091156.48,1254810.59,-176559.18,-39962.20,NK,Spirit Air Lines,Spirit Air Lines,D,2023,3
+-134439.12,-134090.48,332364.73,466455.21,-133928.63,510.49,5Y,Atlas Air Inc.,Atlas Air Inc.,D,2023,1
+-125149.82,-140771.45,485229.31,626000.76,-146536.26,-21386.44,HA,Hawaiian Airlines Inc.,Hawaiian Airlines Inc.,D,2023,1
+-123079.00,-12145.00,1489919.00,1502064.00,-141626.00,-18547.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,A,2023,1
+-119567.00,-121535.00,2067664.00,2189198.00,-160772.00,-41204.00,AS,Alaska Airlines Inc.,Alaska Airlines Inc.,D,2023,1
+-113386.00,-208492.00,1316056.00,1524548.00,-192218.00,-78832.00,FX,Federal Express Corporation,Federal Express Corporation,P,2023,1
+-112099.33,-58663.79,1679150.31,1737814.09,-118926.79,-6827.46,B6,JetBlue Airways,JetBlue Airways,D,2023,4
+-102056.73,-130756.26,1082000.98,1212757.24,-140969.77,-38913.04,5X,United Parcel Service,United Parcel Service,D,2023,2
+-101340.00,-245597.00,1295999.00,1541596.00,-187471.00,-86131.00,FX,Federal Express Corporation,Federal Express Corporation,P,2023,2
+-100168.00,-90197.24,361819.41,452016.65,-91509.55,8658.45,5Y,Atlas Air Inc.,Atlas Air Inc.,D,2023,2
+-99670.48,-107336.67,506402.70,613739.38,-118976.31,-19305.83,HA,Hawaiian Airlines Inc.,Hawaiian Airlines Inc.,D,2023,4
+-92595.00,-92434.00,348563.00,440997.00,-123707.00,-31112.00,FX,Federal Express Corporation,Federal Express Corporation,L,2023,3
+-90765.00,-93591.00,339027.00,432618.00,-116918.00,-26153.00,FX,Federal Express Corporation,Federal Express Corporation,L,2023,4
+-90506.64,-97896.70,1175653.34,1273550.03,-123375.39,-32868.75,NK,Spirit Air Lines,Spirit Air Lines,D,2023,1
+-89175.51,-89330.76,143826.04,233156.80,-89175.51,0.00,9E,Endeavor Air Inc.,Endeavor Air Inc.,D,2023,1
+-85584.19,-87176.94,135872.16,223049.09,-85584.19,0.00,9E,Endeavor Air Inc.,Endeavor Air Inc.,D,2023,2
+-83882.43,5627.38,839170.10,833542.72,13721.71,97604.14,F9,Frontier Airlines Inc.,Frontier Airlines Inc.,D,2023,4
+-81494.79,-81882.13,137737.43,219619.56,-81494.79,0.00,9E,Endeavor Air Inc.,Endeavor Air Inc.,D,2023,3
+-80714.28,-81753.38,139841.55,221594.93,-80714.28,0.00,9E,Endeavor Air Inc.,Endeavor Air Inc.,D,2023,4
+-77875.92,-77875.92,315643.55,393519.47,-77875.92,0.00,AA,American Airlines Inc.,American Airlines Inc.,P,2023,4
+-76480.00,-107080.00,354290.00,461370.00,-116212.00,-39732.00,FX,Federal Express Corporation,Federal Express Corporation,L,2023,2
+-74171.00,-80155.00,342377.00,422532.00,-112688.00,-38517.00,FX,Federal Express Corporation,Federal Express Corporation,L,2023,1
+-64298.35,-64298.35,306619.08,370917.43,-64298.35,0.00,AA,American Airlines Inc.,American Airlines Inc.,P,2023,3
+-52031.00,47819.00,2390654.00,2342835.00,14043.00,66074.00,AS,Alaska Airlines Inc.,Alaska Airlines Inc.,D,2023,4
+-50205.64,-49839.18,97112.01,146951.18,-50205.64,0.00,MX,Breeze Aviation Group DBA  Breeze,Breeze Aviation Group DBA  Breeze,D,2023,3
+-50176.05,-59559.69,564214.28,623773.96,-60915.85,-10739.79,OO,SkyWest Airlines Inc.,SkyWest Airlines Inc.,D,2023,1
+-47861.61,-47961.13,67377.61,115338.74,-47861.61,0.00,MX,Breeze Aviation Group DBA  Breeze,Breeze Aviation Group DBA  Breeze,D,2023,1
+-43791.12,1853.66,106621.64,104767.97,-43791.12,0.00,YV,Mesa Airlines Inc.,Mesa Airlines Inc.,D,2023,4
+-43110.93,-36012.15,56865.57,92877.73,-43163.10,-52.17,KD,Western Global,Western Global,I,2023,3
+-40824.85,-19993.67,37661.70,57655.37,-34078.69,-42.10,KD,Western Global,Western Global,I,2023,1
+-37667.21,-4517.97,103912.28,108430.25,-37667.21,0.00,YV,Mesa Airlines Inc.,Mesa Airlines Inc.,D,2023,2
+-35413.30,-31306.06,120878.83,152184.89,-35413.30,0.00,MX,Breeze Aviation Group DBA  Breeze,Breeze Aviation Group DBA  Breeze,D,2023,4
+-29178.25,-28946.14,64336.05,93282.19,-29178.25,0.00,N8,National Air Cargo Group Inc d/ba National Airlines,National Air Cargo Group Inc d/ba National Airline,I,2023,1
+-28030.91,-28004.59,99875.24,127879.82,-28030.91,0.00,MX,Breeze Aviation Group DBA  Breeze,Breeze Aviation Group DBA  Breeze,D,2023,2
+-27399.63,8433.10,1516253.10,1507820.00,-35074.06,-7674.43,UA,United Air Lines Inc.,United Air Lines Inc.,P,2023,4
+-26829.73,-46738.73,817836.91,864575.65,-37649.70,-10819.97,F9,Frontier Airlines Inc.,Frontier Airlines Inc.,D,2023,3
+-25732.35,-25732.35,264569.46,290301.81,-25732.35,0.00,AA,American Airlines Inc.,American Airlines Inc.,P,2023,1
+-24545.58,2448.25,113384.82,110936.57,-24545.58,0.00,YV,Mesa Airlines Inc.,Mesa Airlines Inc.,D,2023,1
+-24329.18,-9999.45,57084.57,67084.02,-24329.18,0.00,09Q,"Swift Air, LLC d/b/a Eastern Air Lines d/b/a Eastern","Swift Air, LLC d/b/a Eastern Air Lines d/b/a Easte",D,2023,4
+-23648.47,-24638.94,54660.25,79299.19,-28448.92,-4800.45,ABX,ABX Air Inc,ABX Air Inc,D,2023,4
+-21854.57,-25562.71,157289.44,182852.15,-27164.59,-5310.02,NK,Spirit Air Lines,Spirit Air Lines,L,2023,4
+-20981.81,-17507.37,62145.55,79652.93,-20981.81,0.00,09Q,"Swift Air, LLC d/b/a Eastern Air Lines d/b/a Eastern","Swift Air, LLC d/b/a Eastern Air Lines d/b/a Easte",D,2023,2
+-20954.32,-25104.96,167386.17,192491.13,-27084.63,-6130.30,NK,Spirit Air Lines,Spirit Air Lines,L,2023,3
+-20255.87,-40562.45,601174.44,641736.89,-26039.91,-5784.04,OO,SkyWest Airlines Inc.,SkyWest Airlines Inc.,D,2023,4
+-20210.44,-30215.14,581610.38,611825.52,-32611.83,-12401.39,OO,SkyWest Airlines Inc.,SkyWest Airlines Inc.,D,2023,2
+-19301.75,-18748.81,40383.99,59132.80,-19301.75,0.00,NC,Northern Air Cargo Inc.,Northern Air Cargo Inc.,D,2023,4
+-19084.41,-25464.31,343221.41,368685.71,-19079.13,5.28,KAQ,Kalitta Air LLC,Kalitta Air LLC,I,2023,1
+-18672.00,-22345.00,126965.00,149310.00,-25107.00,-6435.00,AS,Alaska Airlines Inc.,Alaska Airlines Inc.,L,2023,1
+-17236.05,-11880.36,12154.57,24034.93,-17236.05,0.00,YV,Mesa Airlines Inc.,Mesa Airlines Inc.,L,2023,4
+-16424.85,-9020.45,18045.10,27065.55,-16424.85,0.00,3M,Silver Airways,Silver Airways,D,2023,4
+-15376.56,-13254.49,54598.70,67853.19,-15376.56,0.00,09Q,"Swift Air, LLC d/b/a Eastern Air Lines d/b/a Eastern","Swift Air, LLC d/b/a Eastern Air Lines d/b/a Easte",D,2023,3
+-15075.07,-11566.80,10779.05,22345.85,-15075.07,0.00,YV,Mesa Airlines Inc.,Mesa Airlines Inc.,L,2023,2
+-14974.60,-14762.09,30332.72,45094.81,-14974.60,0.00,NC,Northern Air Cargo Inc.,Northern Air Cargo Inc.,D,2023,3
+-14933.77,-14933.77,304494.72,319428.49,-14933.77,0.00,AA,American Airlines Inc.,American Airlines Inc.,P,2023,2
+-14432.11,-18885.74,421638.09,440523.82,-14180.94,251.18,KAQ,Kalitta Air LLC,Kalitta Air LLC,I,2023,3
+-13696.37,-11625.51,8449.06,20074.58,-13696.37,0.00,YV,Mesa Airlines Inc.,Mesa Airlines Inc.,L,2023,1
+-13404.54,-14499.05,174120.87,188619.93,-18272.59,-4868.05,NK,Spirit Air Lines,Spirit Air Lines,L,2023,1
+-13366.31,-6006.12,19718.78,25724.90,-13366.31,0.00,3M,Silver Airways,Silver Airways,D,2023,3
+-13126.05,-6397.04,20280.47,26677.51,-13126.05,0.00,3M,Silver Airways,Silver Airways,D,2023,1
+-13019.37,-24518.16,780708.48,805226.64,-16985.69,-3966.32,F9,Frontier Airlines Inc.,Frontier Airlines Inc.,D,2023,1
+-12883.61,-4544.75,101502.11,106046.85,-12883.61,0.00,YV,Mesa Airlines Inc.,Mesa Airlines Inc.,D,2023,3
+-12770.30,-6576.26,260648.15,267224.42,-12636.51,133.80,OH,PSA Airlines Inc.,PSA Airlines Inc.,D,2023,4
+-11944.81,-11987.73,18213.98,30201.71,-11944.81,0.00,L2,Lynden Air Cargo Airlines,Lynden Air Cargo Airlines,D,2023,1
+-11432.24,-10380.41,12522.88,22903.30,-11432.24,0.00,YV,Mesa Airlines Inc.,Mesa Airlines Inc.,L,2023,3
+-11376.00,-6674.00,77930.00,84605.00,-14143.00,-2767.00,QX,Horizon Air,Horizon Air,D,2023,1
+-10875.23,-10875.23,28421.57,39296.81,-10875.23,0.00,NC,Northern Air Cargo Inc.,Northern Air Cargo Inc.,D,2023,2
+-10094.38,-5580.79,128192.40,133773.19,-9022.95,1071.43,X9,Omni Air International LLC,Omni Air International LLC,I,2023,4
+-10017.40,-13818.14,51071.85,64889.99,-12984.05,-2966.65,ZW,Air Wisconsin Airlines Corp,Air Wisconsin Airlines Corp,D,2023,2
+-9926.79,-9765.26,58486.71,68251.97,-9926.52,0.27,XP,TEM Enterprises dba  Avelo Airlines,TEM Enterprises dba  Avelo Airlines,D,2023,1
+-9901.17,-2792.06,22000.83,24792.89,-9901.17,0.00,3M,Silver Airways,Silver Airways,D,2023,2
+-9792.21,-9635.66,63152.63,72788.29,-9792.21,0.00,XP,TEM Enterprises dba  Avelo Airlines,TEM Enterprises dba  Avelo Airlines,D,2023,3
+-9452.57,-6843.09,55051.39,61894.47,-9397.42,55.15,M6,Amerijet International,Amerijet International,L,2023,3
+-9403.01,-9298.97,13143.83,22442.79,-9403.01,0.00,N8,National Air Cargo Group Inc d/ba National Airlines,National Air Cargo Group Inc d/ba National Airline,D,2023,3
+-9371.21,-7505.96,66661.25,74167.20,-10566.77,66.09,M6,Amerijet International,Amerijet International,D,2023,3
+-9184.00,656.79,75886.62,75229.83,-12298.86,-3114.86,M6,Amerijet International,Amerijet International,D,2023,4
+-8871.67,-6057.08,69246.42,75303.50,-8822.27,49.40,M6,Amerijet International,Amerijet International,D,2023,1
+-8787.34,-8453.33,31003.07,39456.40,-8787.34,0.00,NC,Northern Air Cargo Inc.,Northern Air Cargo Inc.,D,2023,1
+-8700.51,-8468.41,21027.79,29496.20,-8700.51,0.00,N8,National Air Cargo Group Inc d/ba National Airlines,National Air Cargo Group Inc d/ba National Airline,D,2023,1
+-8167.88,-8026.89,6045.18,14072.06,-8167.88,0.00,N8,National Air Cargo Group Inc d/ba National Airlines,National Air Cargo Group Inc d/ba National Airline,D,2023,2
+-8149.80,-7896.67,21196.69,29093.35,-8149.80,0.00,L2,Lynden Air Cargo Airlines,Lynden Air Cargo Airlines,D,2023,4
+-8148.50,350.79,65325.22,64974.43,-10838.74,-2690.24,M6,Amerijet International,Amerijet International,L,2023,4
+-8091.31,-9812.77,427954.11,437766.87,-11121.51,-3030.20,MQ,Envoy Air,Envoy Air,D,2023,3
+-7471.02,-6775.21,31475.08,38250.29,-7471.02,0.00,GCA,"Global Crossing Airlines, Inc.","Global Crossing Airlines, Inc.",S,2023,2
+-7403.45,-5145.56,120998.87,126144.43,-7403.45,0.00,X9,Omni Air International LLC,Omni Air International LLC,I,2023,1
+-7378.56,-6475.44,84044.62,90520.05,-7378.56,0.00,09Q,"Swift Air, LLC d/b/a Eastern Air Lines d/b/a Eastern","Swift Air, LLC d/b/a Eastern Air Lines d/b/a Easte",D,2023,1
+-7165.42,-7413.36,14349.25,21762.60,-7165.42,,KLQ,Kalitta Charters II,Kalitta Charters II,D,2023,3
+-7016.56,-15843.06,620841.30,636684.36,-16691.83,-9675.27,OO,SkyWest Airlines Inc.,SkyWest Airlines Inc.,D,2023,3
+-6557.47,-6896.92,46026.30,52923.22,-6556.95,0.52,KAQ,Kalitta Air LLC,Kalitta Air LLC,D,2023,1
+-6514.28,-4307.17,240272.81,244579.98,-8569.66,-2055.38,OH,PSA Airlines Inc.,PSA Airlines Inc.,D,2023,2
+-6476.65,-6372.61,120000.57,126373.18,-6476.65,0.00,N8,National Air Cargo Group Inc d/ba National Airlines,National Air Cargo Group Inc d/ba National Airline,I,2023,3
+-6398.13,-2874.98,9438.90,12313.89,-6398.13,0.00,3M,Silver Airways,Silver Airways,I,2023,3
+-6316.47,-2493.08,9317.55,11810.63,-6316.47,0.00,3M,Silver Airways,Silver Airways,I,2023,4
+-6162.63,-3044.99,70979.96,74024.95,-6093.50,69.13,M6,Amerijet International,Amerijet International,D,2023,2
+-6071.70,-5644.97,32150.55,37795.52,-6071.70,0.00,GCA,"Global Crossing Airlines, Inc.","Global Crossing Airlines, Inc.",S,2023,1
+-5983.00,33387.00,536843.00,503456.00,-12565.00,-6582.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,P,2023,1
+-5954.36,-16842.02,61431.35,78273.38,-6461.85,-81.61,KD,Western Global,Western Global,I,2023,2
+-5876.00,-9421.00,158998.00,168419.00,-6670.00,-794.00,WN,Southwest Airlines Co.,Southwest Airlines Co.,L,2023,4
+-5666.71,-5697.42,29473.45,35170.86,-5666.71,0.00,3EQ,"Scott Aviation, LLC  d/b/a  Silver Air","Scott Aviation, LLC  d/b/a  Silver Air",D,2023,2
+-5655.06,-5386.69,5714.16,11100.85,-5655.06,0.00,1BQ,"Eastern Airlines f/k/a Dynamic Airways, LLC","Eastern Airlines f/k/a Dynamic Airways, LLC",D,2023,4
+-5624.00,-10024.00,201257.00,211281.00,-7207.00,-1583.00,WN,Southwest Airlines Co.,Southwest Airlines Co.,L,2023,1
+-5552.56,-4890.59,142185.69,147076.28,-6046.66,-494.10,HA,Hawaiian Airlines Inc.,Hawaiian Airlines Inc.,P,2023,2
+-5270.73,-3933.96,252397.28,256331.24,-8846.51,-3575.78,OH,PSA Airlines Inc.,PSA Airlines Inc.,D,2023,3
+-5064.05,-2467.99,7824.24,10292.23,-5064.05,0.00,3M,Silver Airways,Silver Airways,I,2023,1
+-4949.05,-3995.51,6313.28,10308.80,-3997.30,951.75,GFQ,Gulf And Caribbean Cargo,Gulf And Caribbean Cargo,D,2023,4
+-4944.66,-2618.58,52611.55,55230.13,-4893.08,51.58,M6,Amerijet International,Amerijet International,L,2023,2
+-4936.88,-4119.36,14622.42,18741.79,-4936.88,0.00,09Q,"Swift Air, LLC d/b/a Eastern Air Lines d/b/a Eastern","Swift Air, LLC d/b/a Eastern Air Lines d/b/a Easte",I,2023,2
+-4906.14,-2324.17,42576.90,44901.07,-4906.14,0.00,GCA,"Global Crossing Airlines, Inc.","Global Crossing Airlines, Inc.",S,2023,3
+-4824.34,-4845.83,27299.84,32145.67,-4824.34,0.00,3EQ,"Scott Aviation, LLC  d/b/a  Silver Air","Scott Aviation, LLC  d/b/a  Silver Air",D,2023,1
+-4738.80,-2576.68,564796.14,567372.83,-6370.70,-1631.90,HA,Hawaiian Airlines Inc.,Hawaiian Airlines Inc.,D,2023,2
+-4659.85,-6995.94,65109.02,72104.96,-6539.09,-1879.24,F9,Frontier Airlines Inc.,Frontier Airlines Inc.,L,2023,3
+-4625.30,-6067.77,50056.02,56123.79,-5820.64,-1195.34,ZW,Air Wisconsin Airlines Corp,Air Wisconsin Airlines Corp,D,2023,3
+-4501.95,-3439.92,95779.84,99219.76,-4501.95,0.00,8C,Air Transport International,Air Transport International,D,2023,3
+-4409.45,6562.49,223965.72,217403.24,-1932.46,2476.99,SY,Sun Country Airlines d/b/a MN Airlines,Sun Country Airlines d/b/a MN Airlines,D,2023,3
+-4207.01,-1186.35,9348.15,10534.50,-4207.01,0.00,3M,Silver Airways,Silver Airways,I,2023,2
+-4010.22,31328.55,345373.61,314045.06,20654.55,24664.78,YX,Republic Airline,Republic Airline,D,2023,4
+-4004.27,-2299.82,764.38,3064.20,-4004.27,0.00,3FQ,"Western Air Charter, Inc.  d/b/a  Jet Edge","Western Air Charter, Inc.  d/b/a  Jet Edge",D,2023,3
+-3924.37,-1156.19,240670.96,241827.15,-5160.90,-1236.53,OH,PSA Airlines Inc.,PSA Airlines Inc.,D,2023,1
+-3894.56,-3357.08,13828.69,17185.77,-3894.56,0.00,09Q,"Swift Air, LLC d/b/a Eastern Air Lines d/b/a Eastern","Swift Air, LLC d/b/a Eastern Air Lines d/b/a Easte",I,2023,3
+-3676.13,-2326.06,17667.74,19993.80,-3676.13,,KLQ,Kalitta Charters II,Kalitta Charters II,D,2023,4
+-3543.38,-3223.43,15629.13,18852.56,-3543.38,0.00,1BQ,"Eastern Airlines f/k/a Dynamic Airways, LLC","Eastern Airlines f/k/a Dynamic Airways, LLC",I,2023,3
+-3484.65,-1432.21,8176.16,9608.38,-3484.65,0.00,09Q,"Swift Air, LLC d/b/a Eastern Air Lines d/b/a Eastern","Swift Air, LLC d/b/a Eastern Air Lines d/b/a Easte",I,2023,4
+-3234.57,-3259.10,5746.42,9005.52,-3234.57,0.00,GFQ,Gulf And Caribbean Cargo,Gulf And Caribbean Cargo,D,2023,3
+-3217.00,16959.00,100462.00,83504.00,5932.00,9149.00,QX,Horizon Air,Horizon Air,D,2023,4
+-3166.93,-2341.12,97524.64,99865.76,-3166.93,0.00,8C,Air Transport International,Air Transport International,D,2023,1
+-2968.80,-2736.12,16578.97,19315.09,-2968.80,,5V,Tatonduk Outfitters Limited d/b/a Everts Air Alaska and Everts Air Cargo,Tatonduk Outfitters Limited d/b/a Everts Air Alask,D,2023,4
+-2952.77,-2956.85,1883.43,4840.28,-2952.77,0.00,37Q,"Eastern Air Express, LLC (EAX)","Eastern Air Express, LLC (EAX)",S,2023,4
+-2781.17,-2897.65,6428.30,9325.95,-3345.72,-564.56,ABX,ABX Air Inc,ABX Air Inc,A,2023,4
+-2406.97,-2472.59,5108.09,7580.68,-2516.63,-109.66,OO,SkyWest Airlines Inc.,SkyWest Airlines Inc.,L,2023,3
+-2317.06,-2077.44,64197.94,66275.38,-2301.39,15.68,XP,TEM Enterprises dba  Avelo Airlines,TEM Enterprises dba  Avelo Airlines,D,2023,2
+-2227.68,-1333.08,53919.00,55252.07,-2227.68,0.00,GCA,"Global Crossing Airlines, Inc.","Global Crossing Airlines, Inc.",S,2023,4
+-2158.62,-4081.35,193858.04,197939.39,-3417.44,-1258.82,PT,Piedmont Airlines,Piedmont Airlines,D,2023,4
+-2041.55,17562.39,1244818.34,1227255.95,13010.46,15052.00,NK,Spirit Air Lines,Spirit Air Lines,D,2023,2
+-2003.61,570.30,64192.54,63622.24,-1958.44,45.18,M6,Amerijet International,Amerijet International,L,2023,1
+-1964.72,-1973.09,7082.42,9055.51,-1964.72,0.00,37Q,"Eastern Air Express, LLC (EAX)","Hillwood Airways, LLC  f/k/a   ATX Air Services, L",S,2023,3
+-1862.54,-2043.80,7996.47,10040.28,-1862.54,,PFQ,Asia Pacific,Asia Pacific,D,2023,1
+-1855.17,-3850.01,59131.81,62981.82,-2515.63,-660.47,ZW,Air Wisconsin Airlines Corp,Air Wisconsin Airlines Corp,D,2023,1
+-1828.14,-1339.14,21466.84,22805.99,-1828.14,0.00,1BQ,"Eastern Airlines f/k/a Dynamic Airways, LLC","Eastern Airlines f/k/a Dynamic Airways, LLC",I,2023,4
+-1707.22,6173.54,565355.25,559181.71,-6560.59,-4853.36,G4,Allegiant Air,Allegiant Air,D,2023,3
+-1689.34,-1666.64,6565.33,8231.97,-1689.34,0.00,N8,National Air Cargo Group Inc d/ba National Airlines,National Air Cargo Group Inc d/ba National Airline,D,2023,4
+-1644.26,-1443.01,18728.78,20171.79,-1644.26,0.00,09Q,"Swift Air, LLC d/b/a Eastern Air Lines d/b/a Eastern","Swift Air, LLC d/b/a Eastern Air Lines d/b/a Easte",I,2023,1
+-1641.18,-1803.80,4608.68,6412.49,-1701.58,-60.40,OO,SkyWest Airlines Inc.,SkyWest Airlines Inc.,L,2023,4
+-1551.17,-1283.01,13359.47,14642.48,-1551.17,0.00,X9,Omni Air International LLC,Omni Air International LLC,D,2023,1
+-1490.21,-1296.51,11920.06,13216.56,-1490.21,,2PQ,21 Air LLC,21 Air LLC,S,2023,1
+-1458.92,-1068.42,21006.29,22074.72,-1538.77,-79.85,1BQ,"Eastern Airlines f/k/a Dynamic Airways, LLC","Eastern Airlines f/k/a Dynamic Airways, LLC",I,2023,2
+-1445.63,-1512.46,4403.04,5915.50,-1562.78,-117.15,OO,SkyWest Airlines Inc.,SkyWest Airlines Inc.,L,2023,2
+-1423.17,-1547.11,5138.22,6685.33,-1423.17,,PFQ,Asia Pacific,Asia Pacific,D,2023,2
+-1274.31,-1332.03,3958.19,5290.22,-1364.07,-89.76,OO,SkyWest Airlines Inc.,SkyWest Airlines Inc.,L,2023,1
+-1191.33,-718.59,19068.19,19786.77,-1191.33,0.00,1BQ,"Eastern Airlines f/k/a Dynamic Airways, LLC","Eastern Airlines f/k/a Dynamic Airways, LLC",D,2023,3
+-1128.80,-1157.50,9972.65,11130.14,-1128.80,0.00,37Q,"Eastern Air Express, LLC (EAX)","Hillwood Airways, LLC  f/k/a   ATX Air Services, L",S,2023,1
+-1105.41,-7258.87,428549.25,435808.12,-482.91,622.49,KAQ,Kalitta Air LLC,Kalitta Air LLC,I,2023,4
+-1096.06,-843.78,6741.84,7585.62,-1036.18,59.89,X9,Omni Air International LLC,Omni Air International LLC,D,2023,4
+-1085.68,-1087.57,1751.03,2838.61,-1085.68,0.00,9E,Endeavor Air Inc.,Endeavor Air Inc.,L,2023,1
+-980.29,-1884.36,24880.72,26765.09,-980.29,0.00,L2,Lynden Air Cargo Airlines,Lynden Air Cargo Airlines,D,2023,2
+-931.17,-948.50,1478.31,2426.81,-931.17,0.00,9E,Endeavor Air Inc.,Endeavor Air Inc.,L,2023,2
+-760.73,-768.16,9904.20,10672.37,-760.73,0.00,37Q,"Eastern Air Express, LLC (EAX)","Hillwood Airways, LLC  f/k/a   ATX Air Services, L",S,2023,2
+-678.02,-682.89,747.03,1429.92,-677.22,0.80,3FQ,"Western Air Charter, Inc.  d/b/a  Jet Edge","Western Air Charter, Inc.  d/b/a  Jet Edge",D,2023,2
+-570.00,8578.00,92415.00,83837.00,-411.00,159.00,QX,Horizon Air,Horizon Air,D,2023,2
+-550.94,-558.03,954.53,1512.57,-550.94,0.00,9E,Endeavor Air Inc.,Endeavor Air Inc.,L,2023,4
+-483.33,-485.63,816.89,1302.52,-483.33,0.00,9E,Endeavor Air Inc.,Endeavor Air Inc.,L,2023,3
+-339.65,-333.70,31216.13,31549.83,-339.65,0.00,3EQ,"Scott Aviation, LLC  d/b/a  Silver Air","Scott Aviation, LLC  d/b/a  Silver Air",D,2023,4
+-316.88,-77.60,14643.27,14720.87,-316.88,,2PQ,21 Air LLC,21 Air LLC,S,2023,4
+-307.76,2647.49,187653.86,185006.36,1961.30,2269.06,NK,Spirit Air Lines,Spirit Air Lines,L,2023,2
+-225.29,-273.22,11915.76,12188.98,-309.66,-84.37,MQ,Envoy Air,Envoy Air,L,2023,3
+-187.54,158.18,8332.02,8173.84,-187.54,0.00,1BQ,"Eastern Airlines f/k/a Dynamic Airways, LLC","Eastern Airlines f/k/a Dynamic Airways, LLC",I,2023,1
+-97.87,-97.87,27388.93,27486.80,-97.87,0.00,27Q,"Jet Aviation Flight Services, Inc.","Jet Aviation Flight Services, Inc.",D,2023,4
+-35.03,-33.74,80458.90,80492.64,-25.53,9.51,XP,TEM Enterprises dba  Avelo Airlines,TEM Enterprises dba  Avelo Airlines,D,2023,4
+-31.19,-16.04,637.54,653.58,-30.86,0.33,OH,PSA Airlines Inc.,PSA Airlines Inc.,L,2023,4
+-24.84,-289.77,62780.70,63070.48,-23.81,1.03,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,D,2023,2
+-18.67,-12.34,689.15,701.49,-24.57,-5.90,OH,PSA Airlines Inc.,PSA Airlines Inc.,L,2023,2
+-17.37,-12.95,833.13,846.08,-29.17,-11.80,OH,PSA Airlines Inc.,PSA Airlines Inc.,L,2023,3
+-13.89,-113.52,60028.97,60142.49,-13.89,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,D,2023,3
+-6.99,-2.02,431.57,433.60,-9.21,-2.22,OH,PSA Airlines Inc.,PSA Airlines Inc.,L,2023,1
+-4.75,10.60,28749.65,28739.05,-4.75,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,D,2023,4
+-2.81,28.33,304.51,276.18,18.93,21.75,YX,Republic Airline,Republic Airline,L,2023,4
+-0.80,-27.50,6178.11,6205.61,-0.80,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,A,2023,1
+-0.35,-243.98,56364.65,56608.63,-0.35,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,D,2023,1
+0.00,0.00,0.00,0.00,0.00,,KLQ,Kalitta Charters II,Kalitta Charters II,I,2023,1
+0.00,0.00,0.00,0.00,0.00,,KLQ,Kalitta Charters II,Kalitta Charters II,I,2023,3
+0.00,0.00,0.00,0.00,0.00,,KLQ,Kalitta Charters II,Kalitta Charters II,I,2023,4
+0.00,0.00,0.00,0.00,0.00,0.00,1TQ,Rhoades Aviation dba Transair,Rhoades Aviation dba Transair,I,2023,1
+0.00,0.00,0.00,0.00,0.00,0.00,3FQ,"Western Air Charter, Inc.  d/b/a  Jet Edge","Western Air Charter, Inc.  d/b/a  Jet Edge",I,2023,1
+0.00,0.00,0.00,0.00,0.00,0.00,3FQ,"Western Air Charter, Inc.  d/b/a  Jet Edge","Western Air Charter, Inc.  d/b/a  Jet Edge",I,2023,2
+0.00,0.00,0.00,0.00,0.00,0.00,3FQ,"Western Air Charter, Inc.  d/b/a  Jet Edge","Western Air Charter, Inc.  d/b/a  Jet Edge",I,2023,3
+0.00,0.00,0.00,0.00,0.00,0.00,3FQ,"Western Air Charter, Inc.  d/b/a  Jet Edge","Western Air Charter, Inc.  d/b/a  Jet Edge",I,2023,4
+0.00,0.00,0.00,0.00,0.00,0.00,C5,CommuteAir LLC dba CommuteAir,CommuteAir LLC dba CommuteAir,L,2023,1
+0.00,0.00,0.00,0.00,0.00,0.00,C5,CommuteAir LLC dba CommuteAir,CommuteAir LLC dba CommuteAir,L,2023,2
+0.00,0.00,0.00,0.00,0.00,0.00,C5,CommuteAir LLC dba CommuteAir,CommuteAir LLC dba CommuteAir,L,2023,3
+0.00,0.00,0.00,0.00,0.00,0.00,C5,CommuteAir LLC dba CommuteAir,CommuteAir LLC dba CommuteAir,L,2023,4
+0.00,0.00,0.00,0.00,0.00,0.00,QX,Horizon Air,Horizon Air,L,2023,1
+0.00,0.00,0.00,0.00,0.00,0.00,QX,Horizon Air,Horizon Air,L,2023,3
+0.00,0.00,0.00,0.00,0.00,0.00,QX,Horizon Air,Horizon Air,L,2023,4
+0.69,123.27,229573.83,229450.55,0.69,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,P,2023,4
+1.14,-1060.16,245534.88,246595.04,1.14,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,P,2023,1
+2.49,-11.17,3237.56,3248.74,2.54,0.05,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,A,2023,2
+4.06,17.40,24970.61,24953.22,4.06,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,A,2023,4
+6.15,-393.06,240512.37,240905.43,6.15,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,P,2023,3
+7.74,1.76,3605.44,3603.68,7.74,0.00,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,A,2023,3
+19.24,-482.88,67641.18,68124.07,25.10,5.86,F9,Frontier Airlines Inc.,Frontier Airlines Inc.,L,2023,1
+22.36,-1025.35,248273.61,249298.95,26.44,4.08,PO,Polar Air Cargo Airways,Polar Air Cargo Airways,P,2023,2
+25.93,62.05,969.08,907.03,34.76,8.84,YX,Republic Airline,Republic Airline,L,2023,3
+42.20,15.60,12991.91,12976.31,55.59,13.39,MQ,Envoy Air,Envoy Air,L,2023,1
+57.64,103.31,1005.32,902.01,78.06,20.42,YX,Republic Airline,Republic Airline,L,2023,1
+70.20,129.99,982.59,852.59,94.23,24.03,YX,Republic Airline,Republic Airline,L,2023,2
+71.13,899.19,21579.35,20680.16,71.13,0.00,WI,Sky Lease Cargo,Sky Lease Cargo,I,2023,4
+80.17,162.35,20172.22,20009.87,80.17,,KLQ,Kalitta Charters II,Kalitta Charters II,D,2023,1
+89.85,156.70,14312.49,14155.78,118.22,28.37,MQ,Envoy Air,Envoy Air,L,2023,2
+117.84,204.99,4151.69,3946.71,117.84,0.00,X9,Omni Air International LLC,Omni Air International LLC,D,2023,3
+120.07,167.09,57405.15,57238.05,120.07,0.00,G7,GoJet Airlines LLC d/b/a United Express,GoJet Airlines LLC d/b/a United Express,D,2023,2
+156.09,225.07,193036.47,192811.41,993.95,837.86,PT,Piedmont Airlines,Piedmont Airlines,D,2023,3
+202.61,394.16,6694.29,6300.12,202.61,0.00,U7,USA Jet Airlines Inc.,USA Jet Airlines Inc.,I,2023,3
+231.62,434.44,13493.02,13058.58,391.02,159.40,MQ,Envoy Air,Envoy Air,L,2023,4
+252.31,524.81,13518.49,12993.68,252.31,0.00,U7,USA Jet Airlines Inc.,USA Jet Airlines Inc.,D,2023,4
+257.09,437.75,10486.58,10048.83,257.09,0.00,ABX,ABX Air Inc,ABX Air Inc,A,2023,1
+259.91,360.22,12897.53,12537.32,259.91,0.00,WL,"Caribbean Sun Airlines, Inc. d/b/a World Atlantic Airlines","Caribbean Sun Airlines, Inc. d/b/a World Atlantic ",I,2023,3
+262.61,546.23,14070.27,13524.03,262.61,0.00,U7,USA Jet Airlines Inc.,USA Jet Airlines Inc.,I,2023,4
+351.93,191.38,8378.23,8186.85,351.93,0.00,ABX,ABX Air Inc,ABX Air Inc,A,2023,3
+407.00,101.00,108492.00,108391.00,541.00,134.00,AS,Alaska Airlines Inc.,Alaska Airlines Inc.,L,2023,3
+449.20,588.39,7162.49,6574.10,449.20,0.00,X9,Omni Air International LLC,Omni Air International LLC,D,2023,2
+467.94,195.76,10190.97,9995.20,467.94,0.00,ABX,ABX Air Inc,ABX Air Inc,A,2023,2
+509.02,148.88,19311.36,19162.48,509.02,,5V,Tatonduk Outfitters Limited d/b/a Everts Air Alaska and Everts Air Cargo,Tatonduk Outfitters Limited d/b/a Everts Air Alask,D,2023,3
+521.00,1013.56,17213.88,16200.32,521.00,0.00,U7,USA Jet Airlines Inc.,USA Jet Airlines Inc.,D,2023,3
+528.97,528.97,2515.58,1986.61,528.97,0.00,27Q,"Jet Aviation Flight Services, Inc.","Jet Aviation Flight Services, Inc.",I,2023,3
+539.48,517.48,1975.55,1458.07,539.48,0.00,3FQ,"Western Air Charter, Inc.  d/b/a  Jet Edge","Western Air Charter, Inc.  d/b/a  Jet Edge",D,2023,1
+556.98,774.56,18080.86,17306.31,556.98,0.00,WL,"Caribbean Sun Airlines, Inc. d/b/a World Atlantic Airlines","Caribbean Sun Airlines, Inc. d/b/a World Atlantic ",I,2023,4
+609.40,126.41,18528.84,18402.44,609.40,,5V,Tatonduk Outfitters Limited d/b/a Everts Air Alaska and Everts Air Cargo,Tatonduk Outfitters Limited d/b/a Everts Air Alask,D,2023,1
+636.33,881.91,31576.72,30694.81,636.33,0.00,WL,"Caribbean Sun Airlines, Inc. d/b/a World Atlantic Airlines","Caribbean Sun Airlines, Inc. d/b/a World Atlantic ",D,2023,3
+684.55,561.75,58353.57,57791.82,666.62,-17.93,C5,CommuteAir LLC dba CommuteAir,CommuteAir LLC dba CommuteAir,D,2023,3
+761.50,875.11,4227.39,3352.27,761.50,0.00,U7,USA Jet Airlines Inc.,USA Jet Airlines Inc.,I,2023,1
+774.70,781.63,20106.73,19325.10,774.70,0.00,WI,Sky Lease Cargo,Sky Lease Cargo,I,2023,3
+794.78,794.78,2862.29,2067.50,794.78,0.00,27Q,"Jet Aviation Flight Services, Inc.","Jet Aviation Flight Services, Inc.",I,2023,4
+823.77,639.71,14205.48,13565.77,823.77,,PFQ,Asia Pacific,Asia Pacific,D,2023,3
+828.77,828.77,1787.18,958.41,828.77,0.00,1TQ,Rhoades Aviation dba Transair,Rhoades Aviation dba Transair,D,2023,1
+858.27,858.27,2932.49,2074.21,858.27,0.00,27Q,"Jet Aviation Flight Services, Inc.","Jet Aviation Flight Services, Inc.",I,2023,2
+914.78,942.35,9144.92,8202.57,914.78,0.00,WL,"Caribbean Sun Airlines, Inc. d/b/a World Atlantic Airlines","Caribbean Sun Airlines, Inc. d/b/a World Atlantic ",I,2023,2
+978.08,1460.78,9128.09,7667.31,1483.66,505.59,GFQ,Gulf And Caribbean Cargo,Gulf And Caribbean Cargo,I,2023,1
+980.00,962.95,61110.90,60147.95,980.00,0.00,G7,GoJet Airlines LLC d/b/a United Express,GoJet Airlines LLC d/b/a United Express,D,2023,4
+999.47,1111.98,5040.43,3928.45,999.47,0.00,U7,USA Jet Airlines Inc.,USA Jet Airlines Inc.,I,2023,2
+1036.94,1036.94,2877.77,1840.83,1036.94,0.00,27Q,"Jet Aviation Flight Services, Inc.","Jet Aviation Flight Services, Inc.",I,2023,1
+1066.33,1278.12,13874.79,12596.67,1066.33,,2PQ,21 Air LLC,21 Air LLC,S,2023,2
+1071.40,23610.05,709062.31,685452.26,22454.54,21383.14,5Y,Atlas Air Inc.,Atlas Air Inc.,I,2023,3
+1169.52,7518.88,106390.99,98872.11,6552.38,5382.86,8C,Air Transport International,Air Transport International,D,2023,4
+1176.45,45886.57,2378011.19,2332124.62,1243.21,66.76,UA,United Air Lines Inc.,United Air Lines Inc.,A,2023,4
+1252.68,-1326.10,162719.40,164045.50,-5241.49,-6494.17,HA,Hawaiian Airlines Inc.,Hawaiian Airlines Inc.,P,2023,4
+1306.84,1541.75,67025.81,65484.06,1314.48,7.64,C5,CommuteAir LLC dba CommuteAir,CommuteAir LLC dba CommuteAir,D,2023,1
+1351.77,1347.47,31832.36,30484.89,1351.77,0.00,3EQ,"Scott Aviation, LLC  d/b/a  Silver Air","Scott Aviation, LLC  d/b/a  Silver Air",D,2023,3
+1363.65,1896.33,44266.94,42370.61,1363.65,0.00,WL,"Caribbean Sun Airlines, Inc. d/b/a World Atlantic Airlines","Caribbean Sun Airlines, Inc. d/b/a World Atlantic ",D,2023,4
+1399.32,517.17,430816.76,430299.59,1843.22,443.90,MQ,Envoy Air,Envoy Air,D,2023,1
+1449.88,2016.52,11017.28,9000.76,2043.39,593.51,GFQ,Gulf And Caribbean Cargo,Gulf And Caribbean Cargo,D,2023,1
+1486.53,1705.10,15001.41,13296.32,1486.53,,2PQ,21 Air LLC,21 Air LLC,S,2023,3
+1499.03,2552.41,61143.97,58591.57,1499.03,0.00,ABX,ABX Air Inc,ABX Air Inc,D,2023,1
+1685.24,1863.32,57076.95,55213.63,1685.24,0.00,G7,GoJet Airlines LLC d/b/a United Express,GoJet Airlines LLC d/b/a United Express,D,2023,1
+1697.86,1726.36,20739.72,19013.37,1697.86,0.00,WI,Sky Lease Cargo,Sky Lease Cargo,I,2023,1
+1702.60,1763.32,5045.73,3282.40,1702.60,0.00,WL,"Caribbean Sun Airlines, Inc. d/b/a World Atlantic Airlines","Caribbean Sun Airlines, Inc. d/b/a World Atlantic ",I,2023,1
+1744.40,1716.85,63548.30,61831.45,1972.42,228.02,C5,CommuteAir LLC dba CommuteAir,CommuteAir LLC dba CommuteAir,D,2023,2
+1853.23,1761.09,7348.93,5587.84,1814.52,-38.71,GFQ,Gulf And Caribbean Cargo,Gulf And Caribbean Cargo,I,2023,2
+1864.24,2005.23,134671.76,132666.53,1864.24,0.00,N8,National Air Cargo Group Inc d/ba National Airlines,National Air Cargo Group Inc d/ba National Airline,I,2023,2
+1928.93,1949.26,27786.57,25837.31,1942.15,13.22,KAQ,Kalitta Air LLC,Kalitta Air LLC,D,2023,3
+1962.76,12381.63,221778.63,209397.00,3977.07,2014.30,SY,Sun Country Airlines d/b/a MN Airlines,Sun Country Airlines d/b/a MN Airlines,D,2023,4
+2055.40,1966.87,7335.58,5368.71,2018.20,-37.19,GFQ,Gulf And Caribbean Cargo,Gulf And Caribbean Cargo,D,2023,2
+2159.82,2229.28,32766.81,30537.53,2159.82,0.00,8C,Air Transport International,Air Transport International,A,2023,2
+2239.63,2307.13,22389.28,20082.15,2239.63,0.00,WL,"Caribbean Sun Airlines, Inc. d/b/a World Atlantic Airlines","Caribbean Sun Airlines, Inc. d/b/a World Atlantic ",D,2023,2
+2288.61,1244.53,54483.56,53239.03,2288.61,0.00,ABX,ABX Air Inc,ABX Air Inc,D,2023,3
+2328.45,2716.24,186613.64,183897.40,3096.55,768.10,PT,Piedmont Airlines,Piedmont Airlines,D,2023,2
+2586.56,2863.27,14426.02,11562.76,2529.98,-56.58,1BQ,"Eastern Airlines f/k/a Dynamic Airways, LLC","Eastern Airlines f/k/a Dynamic Airways, LLC",D,2023,2
+2595.57,1085.87,56527.79,55441.91,2595.57,0.00,ABX,ABX Air Inc,ABX Air Inc,D,2023,2
+2647.94,4618.03,421789.46,417171.43,3483.94,835.99,MQ,Envoy Air,Envoy Air,D,2023,2
+2749.81,2767.28,89645.79,86878.51,3390.22,640.41,F9,Frontier Airlines Inc.,Frontier Airlines Inc.,L,2023,2
+2845.55,2922.60,28746.36,25823.76,2845.55,0.00,KAQ,Kalitta Air LLC,Kalitta Air LLC,D,2023,2
+3026.16,2834.01,31220.68,28386.67,3026.16,0.00,L2,Lynden Air Cargo Airlines,Lynden Air Cargo Airlines,D,2023,3
+3189.01,3733.68,186668.48,182934.80,4199.71,1010.70,PT,Piedmont Airlines,Piedmont Airlines,D,2023,1
+3212.92,3118.70,14665.65,11546.95,3337.92,125.00,PFQ,Asia Pacific,Asia Pacific,D,2023,4
+3276.22,2817.29,21213.74,18396.45,3276.22,,5V,Tatonduk Outfitters Limited d/b/a Everts Air Alaska and Everts Air Cargo,Tatonduk Outfitters Limited d/b/a Everts Air Alask,D,2023,2
+3387.65,3065.77,57665.53,54599.76,3397.38,9.73,C5,CommuteAir LLC dba CommuteAir,CommuteAir LLC dba CommuteAir,D,2023,4
+3598.32,23353.49,566322.33,542968.84,3817.48,219.16,B6,JetBlue Airways,JetBlue Airways,L,2023,4
+3793.33,5729.30,12817.88,7088.59,5725.67,1932.35,GFQ,Gulf And Caribbean Cargo,Gulf And Caribbean Cargo,I,2023,4
+3947.00,16722.00,103589.00,86866.00,5229.00,1282.00,QX,Horizon Air,Horizon Air,D,2023,3
+4100.23,4498.35,34065.35,29567.00,4437.75,337.51,8C,Air Transport International,Air Transport International,A,2023,4
+4110.04,4153.81,63427.66,59273.85,4110.04,0.00,G7,GoJet Airlines LLC d/b/a United Express,GoJet Airlines LLC d/b/a United Express,D,2023,3
+4126.13,4743.03,23764.18,19021.15,4126.13,0.00,SY,Sun Country Airlines d/b/a MN Airlines,Sun Country Airlines d/b/a MN Airlines,L,2023,4
+4308.17,-6276.29,-1321.26,4955.03,4308.17,0.00,3FQ,"Western Air Charter, Inc.  d/b/a  Jet Edge","Western Air Charter, Inc.  d/b/a  Jet Edge",D,2023,4
+4432.89,8177.13,79760.23,71583.10,4702.88,269.99,B6,JetBlue Airways,JetBlue Airways,A,2023,4
+4458.30,5418.91,99611.32,94192.40,4458.30,0.00,8C,Air Transport International,Air Transport International,D,2023,2
+4508.28,4458.47,11666.98,7208.51,4508.28,0.00,GFQ,Gulf And Caribbean Cargo,Gulf And Caribbean Cargo,I,2023,3
+4562.00,7443.00,141165.00,133722.00,6137.00,1575.00,AS,Alaska Airlines Inc.,Alaska Airlines Inc.,L,2023,2
+4845.87,5018.69,14360.91,9342.22,4845.87,0.00,WL,"Caribbean Sun Airlines, Inc. d/b/a World Atlantic Airlines","Caribbean Sun Airlines, Inc. d/b/a World Atlantic ",D,2023,1
+4923.21,5939.08,32104.90,26165.81,4923.21,0.00,KH,Aloha Air Cargo,Aloha Air Cargo,D,2023,3
+5025.72,5649.13,13276.81,7627.68,5025.72,0.00,1BQ,"Eastern Airlines f/k/a Dynamic Airways, LLC","Eastern Airlines f/k/a Dynamic Airways, LLC",D,2023,1
+5064.40,5064.40,33810.59,28746.19,5064.40,0.00,NC,Northern Air Cargo Inc.,Northern Air Cargo Inc.,I,2023,2
+5584.29,6417.50,31000.83,24583.34,5584.29,0.00,U7,USA Jet Airlines Inc.,USA Jet Airlines Inc.,D,2023,1
+5663.66,6301.24,28562.45,22261.21,5663.66,0.00,U7,USA Jet Airlines Inc.,USA Jet Airlines Inc.,D,2023,2
+5898.00,3586.00,199261.00,195675.00,7238.00,1340.00,WN,Southwest Airlines Co.,Southwest Airlines Co.,L,2023,3
+5969.38,9445.51,170866.98,161421.47,5969.38,0.00,X9,Omni Air International LLC,Omni Air International LLC,I,2023,3
+6182.54,6182.54,7906.96,1724.42,6182.54,0.00,L2,Lynden Air Cargo Airlines,Lynden Air Cargo Airlines,I,2023,1
+6350.70,6350.70,27906.04,21555.34,6350.70,0.00,27Q,"Jet Aviation Flight Services, Inc.","Jet Aviation Flight Services, Inc.",D,2023,2
+6430.00,6506.51,33427.75,26921.24,6430.00,0.00,8C,Air Transport International,Air Transport International,A,2023,3
+6452.14,6516.32,34891.40,28375.07,6452.14,0.00,8C,Air Transport International,Air Transport International,A,2023,1
+6498.32,8334.74,47365.05,39030.31,6498.32,0.00,KH,Aloha Air Cargo,Aloha Air Cargo,D,2023,4
+6625.26,6625.26,27035.24,20409.98,6625.26,0.00,27Q,"Jet Aviation Flight Services, Inc.","Jet Aviation Flight Services, Inc.",D,2023,3
+6934.55,6926.53,37724.22,30797.69,6934.55,0.00,WI,Sky Lease Cargo,Sky Lease Cargo,I,2023,2
+6959.24,6959.24,26008.57,19049.32,6959.24,0.00,27Q,"Jet Aviation Flight Services, Inc.","Jet Aviation Flight Services, Inc.",D,2023,1
+6974.30,21032.15,608119.97,587087.82,7137.45,163.15,G4,Allegiant Air,Allegiant Air,D,2023,4
+7034.12,7505.03,34867.06,27362.03,7034.12,0.00,NC,Northern Air Cargo Inc.,Northern Air Cargo Inc.,I,2023,1
+7058.23,7097.77,33003.03,25905.26,7058.23,0.00,KH,Aloha Air Cargo,Aloha Air Cargo,D,2023,2
+7301.01,7455.26,35032.25,27576.99,7301.01,0.00,KH,Aloha Air Cargo,Aloha Air Cargo,D,2023,1
+7706.05,7706.05,9183.57,1477.52,7706.05,0.00,L2,Lynden Air Cargo Airlines,Lynden Air Cargo Airlines,I,2023,2
+7720.26,14480.61,449747.09,435266.48,13033.46,5313.20,MQ,Envoy Air,Envoy Air,D,2023,4
+8933.39,21704.12,342602.82,320898.70,12056.98,3123.58,YX,Republic Airline,Republic Airline,D,2023,3
+9203.25,9534.24,35306.77,25772.53,9203.25,0.00,NC,Northern Air Cargo Inc.,Northern Air Cargo Inc.,I,2023,3
+9485.93,10428.61,38383.22,27954.61,9485.93,0.00,SY,Sun Country Airlines d/b/a MN Airlines,Sun Country Airlines d/b/a MN Airlines,L,2023,2
+9561.79,9561.97,11380.45,1818.49,9561.97,0.18,L2,Lynden Air Cargo Airlines,Lynden Air Cargo Airlines,I,2023,3
+10453.55,10000.44,62623.28,52622.85,10518.89,65.35,KAQ,Kalitta Air LLC,Kalitta Air LLC,D,2023,4
+10885.80,25158.00,222702.96,197544.96,17018.39,6132.59,SY,Sun Country Airlines d/b/a MN Airlines,Sun Country Airlines d/b/a MN Airlines,D,2023,2
+11022.58,16221.16,62100.71,45879.56,15310.31,4287.73,B6,JetBlue Airways,JetBlue Airways,A,2023,1
+11445.25,12306.46,48458.71,36152.26,11445.25,0.00,NC,Northern Air Cargo Inc.,Northern Air Cargo Inc.,I,2023,4
+12157.76,12443.19,24909.96,12466.77,12157.76,0.00,SY,Sun Country Airlines d/b/a MN Airlines,Sun Country Airlines d/b/a MN Airlines,L,2023,3
+12825.08,15821.11,160056.67,144235.56,12825.08,0.00,X9,Omni Air International LLC,Omni Air International LLC,I,2023,2
+13256.18,22047.41,66765.88,44718.47,20891.96,7635.78,B6,JetBlue Airways,JetBlue Airways,A,2023,2
+14454.69,30310.76,213533.58,183222.83,25808.67,11353.99,SY,Sun Country Airlines d/b/a MN Airlines,Sun Country Airlines d/b/a MN Airlines,D,2023,1
+15263.62,11761.79,422725.58,410963.79,15263.62,0.00,KAQ,Kalitta Air LLC,Kalitta Air LLC,I,2023,2
+17655.41,17678.11,165981.07,148302.97,17655.41,0.00,N8,National Air Cargo Group Inc d/ba National Airlines,National Air Cargo Group Inc d/ba National Airline,I,2023,4
+17947.91,13426.49,126520.48,113093.98,11760.35,-6187.56,HA,Hawaiian Airlines Inc.,Hawaiian Airlines Inc.,P,2023,1
+20535.63,37067.08,363854.50,326787.42,27926.27,7390.65,YX,Republic Airline,Republic Airline,D,2023,1
+21919.93,21976.67,25920.55,3943.88,21940.17,20.24,L2,Lynden Air Cargo Airlines,Lynden Air Cargo Airlines,I,2023,4
+24262.73,25472.38,80581.59,55109.21,24262.73,0.00,SY,Sun Country Airlines d/b/a MN Airlines,Sun Country Airlines d/b/a MN Airlines,L,2023,1
+25380.15,47261.22,359553.24,312292.03,34173.82,8793.68,YX,Republic Airline,Republic Airline,D,2023,2
+26073.00,30332.00,268537.00,238205.00,33821.00,7748.00,WN,Southwest Airlines Co.,Southwest Airlines Co.,L,2023,2
+27858.09,30574.13,52645.24,22071.11,27866.17,8.08,KD,Western Global,Western Global,I,2023,4
+31166.32,42237.41,115948.06,73710.65,41499.77,10333.44,5X,United Parcel Service,United Parcel Service,L,2023,2
+31361.56,52112.20,576783.76,524671.56,43561.05,12199.50,B6,JetBlue Airways,JetBlue Airways,L,2023,1
+33012.91,43451.43,109796.97,66345.54,43154.13,10141.22,5X,United Parcel Service,United Parcel Service,L,2023,3
+35783.22,46070.34,136185.79,90115.45,45295.21,9511.99,5X,United Parcel Service,United Parcel Service,L,2023,1
+39287.06,67528.54,778485.91,710957.37,65036.14,25749.08,5Y,Atlas Air Inc.,Atlas Air Inc.,I,2023,4
+39558.96,55042.11,345606.19,290564.08,52675.04,13116.09,5X,United Parcel Service,United Parcel Service,A,2023,2
+40060.44,45714.35,109190.74,63476.39,45062.36,5001.92,5X,United Parcel Service,United Parcel Service,L,2023,4
+41625.29,48767.68,95360.82,46593.13,47779.94,6154.65,B6,JetBlue Airways,JetBlue Airways,A,2023,3
+42086.00,130143.00,1208422.00,1078279.00,27364.00,-14722.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,L,2023,1
+42551.10,56052.01,363411.52,307359.51,53862.15,11311.05,5X,United Parcel Service,United Parcel Service,A,2023,1
+48084.04,402729.51,8630655.80,8227926.29,78059.26,29975.21,AA,American Airlines Inc.,American Airlines Inc.,D,2023,1
+48686.85,60228.15,363087.40,302859.26,59636.45,10949.60,5Y,Atlas Air Inc.,Atlas Air Inc.,D,2023,3
+48811.14,-8259.54,52085.42,60344.96,-7984.66,-56795.80,F9,Frontier Airlines Inc.,Frontier Airlines Inc.,L,2023,4
+52925.01,52925.01,2188758.88,2135833.87,52925.01,0.00,AA,American Airlines Inc.,American Airlines Inc.,A,2023,2
+54428.00,-11804.00,159610.00,171414.00,-14690.00,-69119.00,AS,Alaska Airlines Inc.,Alaska Airlines Inc.,L,2023,4
+55681.09,73890.06,376974.67,303084.62,72785.73,17104.65,5X,United Parcel Service,United Parcel Service,A,2023,3
+58680.60,102321.11,613351.26,511030.15,92481.60,33801.00,B6,JetBlue Airways,JetBlue Airways,L,2023,2
+60170.00,105215.00,843900.00,738685.00,83982.00,23812.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,L,2023,3
+61325.32,71459.84,375104.43,303644.59,68982.36,7657.04,5X,United Parcel Service,United Parcel Service,A,2023,4
+61400.66,98134.16,649682.01,551547.86,79669.55,18268.88,G4,Allegiant Air,Allegiant Air,D,2023,1
+65300.56,134452.48,1929595.41,1795142.93,102914.77,37614.21,B6,JetBlue Airways,JetBlue Airways,D,2023,2
+65712.69,107123.54,1294816.51,1187692.97,84545.30,18832.62,UA,United Air Lines Inc.,United Air Lines Inc.,L,2023,4
+67685.08,125578.30,1113588.52,988010.22,89066.97,21381.89,UA,United Air Lines Inc.,United Air Lines Inc.,P,2023,1
+68734.66,76471.13,876761.89,800290.76,84742.43,16007.77,F9,Frontier Airlines Inc.,Frontier Airlines Inc.,D,2023,2
+70284.55,115907.27,1184603.27,1068696.01,91690.33,21405.78,UA,United Air Lines Inc.,United Air Lines Inc.,L,2023,3
+74778.55,109103.53,1272666.07,1163562.54,96403.86,21625.31,UA,United Air Lines Inc.,United Air Lines Inc.,L,2023,2
+82063.05,97433.67,423696.25,326262.58,96077.17,14014.11,5Y,Atlas Air Inc.,Atlas Air Inc.,D,2023,4
+83267.38,127901.96,683810.24,555908.28,111143.65,27876.27,G4,Allegiant Air,Allegiant Air,D,2023,2
+96798.77,97517.01,684713.41,587196.40,97850.44,1051.67,5Y,Atlas Air Inc.,Atlas Air Inc.,I,2023,1
+97023.74,97023.74,1635109.68,1538085.95,97023.74,0.00,AA,American Airlines Inc.,American Airlines Inc.,L,2023,3
+97493.00,133102.00,655689.00,522587.00,116317.00,18824.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,P,2023,3
+98156.00,58679.00,661352.00,602673.00,109922.00,11766.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,P,2023,4
+101145.44,133522.26,529250.74,395728.48,132216.26,31070.82,5X,United Parcel Service,United Parcel Service,P,2023,3
+101389.35,137545.68,475893.04,338347.36,135005.79,33616.44,5X,United Parcel Service,United Parcel Service,P,2023,2
+102896.85,98508.17,711062.49,612554.32,94067.05,-8829.80,HA,Hawaiian Airlines Inc.,Hawaiian Airlines Inc.,D,2023,3
+104337.00,129245.00,626989.00,497744.00,125614.00,21277.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,P,2023,2
+109905.20,126723.41,546198.85,419475.44,123627.89,13722.70,5X,United Parcel Service,United Parcel Service,P,2023,4
+116213.91,171934.08,1259026.26,1087092.17,149829.02,33615.11,UA,United Air Lines Inc.,United Air Lines Inc.,P,2023,2
+124857.00,162891.00,974257.00,811366.00,157347.00,32490.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,L,2023,2
+135770.26,199053.99,1316266.65,1117212.65,178693.63,42923.36,UA,United Air Lines Inc.,United Air Lines Inc.,L,2023,1
+136824.61,175548.35,534065.27,358516.92,173195.71,36371.10,5X,United Parcel Service,United Parcel Service,P,2023,1
+147690.00,190805.00,2728664.00,2537859.00,196153.00,48462.00,AS,Alaska Airlines Inc.,Alaska Airlines Inc.,D,2023,3
+158234.00,98265.00,1011224.00,912959.00,176107.00,17873.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,L,2023,4
+181322.68,201189.56,720957.29,519767.73,198575.41,17252.73,5Y,Atlas Air Inc.,Atlas Air Inc.,I,2023,2
+187179.00,113787.00,6325725.00,6211938.00,229728.00,42549.00,WN,Southwest Airlines Co.,Southwest Airlines Co.,D,2023,3
+203072.13,295915.63,1378130.32,1082214.69,265246.49,62174.36,UA,United Air Lines Inc.,United Air Lines Inc.,P,2023,3
+204885.14,204885.14,1847377.16,1642492.02,204885.14,0.00,AA,American Airlines Inc.,American Airlines Inc.,L,2023,4
+235681.00,339651.00,2694962.00,2355311.00,317065.00,81384.00,AS,Alaska Airlines Inc.,Alaska Airlines Inc.,D,2023,2
+247678.32,290886.58,694046.90,403160.31,284299.67,36621.35,B6,JetBlue Airways,JetBlue Airways,L,2023,3
+294006.71,822511.12,9307001.56,8484490.44,312145.96,18139.24,AA,American Airlines Inc.,American Airlines Inc.,D,2023,4
+304965.51,430385.50,3228753.54,2798368.04,393424.52,88459.01,UA,United Air Lines Inc.,United Air Lines Inc.,A,2023,2
+311187.00,180030.00,2176767.00,1996737.00,350278.00,39091.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,A,2023,4
+336987.32,336987.32,1798322.70,1461335.38,336987.32,0.00,AA,American Airlines Inc.,American Airlines Inc.,L,2023,2
+356274.83,356274.83,2123188.47,1766913.64,356274.83,0.00,AA,American Airlines Inc.,American Airlines Inc.,L,2023,1
+414969.54,606293.11,3542580.88,2936287.77,541972.16,127002.62,UA,United Air Lines Inc.,United Air Lines Inc.,A,2023,3
+449495.59,720931.57,8378563.65,7657632.08,587156.68,137661.10,UA,United Air Lines Inc.,United Air Lines Inc.,D,2023,3
+493731.00,684911.00,3468590.00,2783679.00,594793.00,101062.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,A,2023,3
+530939.00,657744.00,3148176.00,2490432.00,639262.00,108323.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,A,2023,2
+538978.00,1056742.00,10578432.00,9521690.00,808047.00,269069.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,D,2023,3
+561865.49,838713.47,8436800.33,7598086.86,721828.94,159963.46,UA,United Air Lines Inc.,United Air Lines Inc.,D,2023,4
+579590.49,806094.52,8417621.50,7611526.98,747609.92,168019.43,UA,United Air Lines Inc.,United Air Lines Inc.,D,2023,2
+657189.00,764539.00,6768542.00,6004003.00,852485.00,195297.00,WN,Southwest Airlines Co.,Southwest Airlines Co.,D,2023,2
+924309.00,1309203.00,6677516.00,5368313.00,1184780.00,260471.00,FX,Federal Express Corporation,Federal Express Corporation,D,2023,1
+1048548.10,1795694.90,9762724.41,7967029.51,1500855.12,452307.02,AA,American Airlines Inc.,American Airlines Inc.,D,2023,2
+1060395.00,1311250.00,6428728.00,5117478.00,1257204.00,196809.00,FX,Federal Express Corporation,Federal Express Corporation,D,2023,3
+1113926.00,1268321.00,6438317.00,5169996.00,1458446.00,344520.00,FX,Federal Express Corporation,Federal Express Corporation,D,2023,2
+1153288.00,1533243.00,10888168.00,9354925.00,1481621.00,328333.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,D,2023,2
+1193347.00,1356577.00,6767553.00,5410976.00,1419373.00,226026.00,FX,Federal Express Corporation,Federal Express Corporation,D,2023,4
+1550496.00,987203.00,10407790.00,9420587.00,1719891.00,169395.00,DL,Delta Air Lines Inc.,Delta Air Lines Inc.,D,2023,4

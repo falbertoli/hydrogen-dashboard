@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Available Polygon Area 1",
+    "type": "polygon",
+    "coordinates": [
+      [33.63, -84.45],
+      [33.63, -84.4],
+      [33.6, -84.4],
+      [33.6, -84.45]
+    ]
+  },
+  {
+    "name": "Potential Circular Area",
+    "type": "circle",
+    "center": [33.62, -84.42],
+    "radius": 200
+  },
+  {
+    "name": "Another Polygon",
+    "type": "polygon",
+    "coordinates": [
+      [33.64, -84.44],
+      [33.645, -84.43],
+      [33.635, -84.425]
+    ]
+  }
+]

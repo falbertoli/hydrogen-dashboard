@@ -1,6 +1,6 @@
 #  backend/models/aircraft.py and backend/models/gse.py
 from sqlalchemy import Column, Integer, Float, String
-from sqlalchemy.orm import declarative_base  # Updated import
+from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 

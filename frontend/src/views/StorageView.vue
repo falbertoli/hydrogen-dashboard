@@ -14,7 +14,7 @@ frontend/src/views/StorageView.vue
 </template>
 
 <script>
-import { submitStorage } from "../api";
+import { storageService } from '../services/api.js';
 
 export default {
   data() {
@@ -33,7 +33,7 @@ export default {
   methods: {
     async submitForm() {
       try {
-        this.result = await submitStorage(this.formData);
+        this.result = await storageService.calculateStorageCost(this.formData);
       } catch (error) {
         console.error("Error submitting form:", error);
       }

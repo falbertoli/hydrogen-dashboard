@@ -50,7 +50,7 @@
 <script setup>
 import { ref } from "vue";
 import axios from "axios";
-import { submitFinancialAnalysis } from "@/api";
+import { economicService } from "../services/api.js";
 
 // Reactive variables
 const fleetPercentage = ref(30); // Default value based on provided logic
@@ -74,7 +74,7 @@ const isLoading = ref(false);
 //       taxCredits: taxCredits.value,
 //     };
 
-//     const response = await submitFinancialAnalysis(data);
+//     const response = await economicService.calculateEconomicImpact(data);
 //     results.value = response.data;
 //     error.value = null; // Clear any previous errors
 //   } catch (err) {
@@ -89,7 +89,7 @@ const submitForm = async () => {
   error.value = null;
   isLoading.value = true; // Set loading state
   try {
-    const response = await submitFinancialAnalysis({
+    const response = await economicService.calculateEconomicImpact({
       fleetPercentage: fleetPercentage.value / 100,
       totalFlights: totalFlights.value,
       atlantaFraction: atlantaFraction.value,
